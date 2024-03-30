@@ -1,8 +1,20 @@
 import React from 'react'
-
+import kevpam from '../assets/headimg.jpg'
 function Head() {
   return (
-    <div>Head</div>
+    <>
+      <div className='max-w-[1000px] mx-auto pt-32'>
+        <div className='flex justify-center items-center px-10 sm:px-15 md:px-20 lg:px-42 xl:px-0 2xl:px-0'>
+          <div className='fixed uppercase text-white text-center text-4xl'>
+            <h1>tara tagaytay?</h1>
+            <h1>G!</h1>
+          </div>
+          <div className=''>
+            <img src={kevpam} className=' rounded-xl border-[#403F10] border-2' />
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 
