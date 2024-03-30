@@ -5,7 +5,7 @@ function Head() {
     <>
       <div className='max-w-[1000px] mx-auto pt-32'>
         <div className='flex justify-center items-center px-10 sm:px-15 md:px-20 lg:px-42 xl:px-0 2xl:px-0'>
-          <div className='fixed uppercase text-white text-center text-4xl'>
+          <div className='fixed uppercase text-white text-center text-xl sm:text-4xl'>
             <h1>tara tagaytay?</h1>
             <h1>G!</h1>
           </div>
