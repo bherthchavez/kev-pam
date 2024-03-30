@@ -12,7 +12,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className={`z-20 tracking-widest font-bold text-[1.4rem]  fixed flex justify-between px-8 sm:px-10 md:px-20 lg:px-42 xl:px-52 2xl:px-80 items-center top-0 w-screen h-36 text-white`}>
+            <div className={`z-20 tracking-widest font-bold text-[1.4rem]  fixed flex justify-between px-8 sm:px-10 md:px-20 lg:px-42 xl:px-52 2xl:px-[17rem] items-center top-0 w-screen h-36 text-white`}>
                 <a href='/' className="cursor-pointer bg-[#000] rounded px-2">
                     <h1 className='text-[1.2rem] '> kev+pam</h1>
                 </a>
