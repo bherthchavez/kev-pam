@@ -5,7 +5,7 @@ import Home from "./components/Home";
 function App() {
   return (
     <>
-      <main className={`bg-[#000000] h-screen font-glacial`}>
+      <main className={`bg-[#000000]  font-glacial`}>
         <Routes>
 
           <Route path="/" element={<Home />} />

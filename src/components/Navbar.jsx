@@ -12,12 +12,12 @@ const Navbar = () => {
 
     return (
         <>
-            <div className={`z-20 tracking-widest font-bold text-[1.4rem]  fixed flex justify-between px-8 sm:px-10 md:px-20 lg:px-42 xl:px-52 2xl:px-[17rem] items-center top-0 w-screen h-36 text-white`}>
-                <a href='/' className="cursor-pointer bg-[#000] rounded px-2">
+            <div className={`z-20 bg-[#000] tracking-widest font-bold text-[1.4rem]  fixed flex justify-between px-8 sm:px-10 md:px-20 lg:px-42 xl:px-52 2xl:px-[17rem] items-center top-0 w-screen h-28 text-white`}>
+                <a href='/' className="cursor-pointer  rounded px-2">
                     <h1 className='text-[1.2rem] '> kev+pam</h1>
                 </a>
-                <ul className="hidden md:flex bg-[#000] rounded gap-8 ">
-                    <Link to='simbahan' smooth={true} duration={500}>
+                <ul className="hidden md:flex  rounded gap-8 ">
+                    <Link to='kailan' smooth={true} duration={500}>
                         <li className='p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
                             <span className='w-full text-md text-[#fef1e2] cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
                                 kailan at saan?
@@ -68,7 +68,7 @@ const Navbar = () => {
                 <div className='flex flex-col justify-center gap-32 items-center  h-screen '>
 
                     <ul className='text-3xl flex flex-col  gap-8 '>
-                        <Link to='simbahan' smooth={true} duration={500}>
+                        <Link to='kailan' smooth={true} duration={500}>
                             <li onClick={handleNav} className=' cursor-pointer '>
                                 kailan at saan?
                             </li>
