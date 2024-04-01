@@ -1,6 +1,7 @@
 import React from 'react'
 import kevpam from '../assets/headimg.jpg'
 function Head() {
+  console.log(import.meta.env.ADMIN_KEY) // "123"
   return (
     <>
       <div className='max-w-[1000px] mx-auto pt-32'>
@@ -9,6 +10,7 @@ function Head() {
             <h1>tara tagaytay?</h1>
             <h1>G!</h1>
           </div>
+          
           <div className=''>
             <img src={kevpam} className=' rounded-xl border-[#403F10] border-2' />
           </div>

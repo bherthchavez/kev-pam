@@ -48,7 +48,7 @@ const Venue = () => {
 
 
 
-                        <h1>june 8, 2024, saturday <br></br> 3:00 PM</h1>
+                        <h1> june 8, 2024, saturday <br></br> 3:00 PM</h1>
                         <a href='https://maps.app.goo.gl/wEwkVMmAmMhBcFVE7'
                             target='_blank' rel='noreferrer noopener'
                             className='underline'>Savanna Farm Tagaytay  <br></br>Alfonso, Cavite</a>
