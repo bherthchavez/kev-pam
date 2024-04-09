@@ -1,9 +1,17 @@
 import React from 'react'
 import kevpam from '../assets/headimg.jpg'
+
 function Head() {
-  const Key = import.meta.env.VITE_KEY;
   
-  console.log(`API Key: ${Key}`);
+  
+  console.log(`VITE_KEY: ${import.meta.env.VITE_KEY}`);
+  console.log(`VITE_API_KEY: ${import.meta.env.VITE_API_KEY}`);
+  console.log(`VITE_AUTHDOMAIN_KEY1: ${import.meta.env.VITE_AUTHDOMAIN_KEY1}`);
+  console.log(`VITE_PROJECTID_KEY2: ${import.meta.env.VITE_PROJECTID_KEY2}`);
+  console.log(`VITE_STORAGEBUCKET_KEY3: ${import.meta.env.VITE_STORAGEBUCKET_KEY3}`);
+  console.log(`VITE_MESSAGINGSENDERID_KEY4: ${import.meta.env.VITE_MESSAGINGSENDERID_KEY4}`);
+  console.log(`VITE_APPID_KEY5: ${import.meta.env.VITE_APPID_KEY5}`);
+  
   return (
     <>
       <div className='max-w-[1000px] mx-auto pt-32'>
