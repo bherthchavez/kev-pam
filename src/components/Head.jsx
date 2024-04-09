@@ -1,7 +1,9 @@
 import React from 'react'
 import kevpam from '../assets/headimg.jpg'
 function Head() {
-  console.log(import.meta.env.ADMIN_KEY) // "123"
+  const Key = import.meta.env.VITE_KEY;
+  
+  console.log(`API Key: ${Key}`);
   return (
     <>
       <div className='max-w-[1000px] mx-auto pt-32'>
