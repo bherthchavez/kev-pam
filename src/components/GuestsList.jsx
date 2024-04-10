@@ -161,7 +161,7 @@ function GuestsList() {
   return (
     <section  className="flex flex-col justify-between bg-[#000] h-screen  font-sans">
 
-      <div className="container flex flex-col px-2 sm:px-8 py-8 sn:py-8 gap-2 sm:gap-5 mx-auto  max-w-[1200px]">
+      <div className="container flex flex-col px-2 sm:px-8 pt-8 sm:pt-8 gap-2 sm:gap-5 mx-auto  max-w-[1200px]">
         <div className='flex flex-col justify-center items-center'>
           <div className="flex flex-col justify-center items-center text-white">
             <a href='/' className="cursor-pointer  rounded px-2 tracking-widest font-bold text-xl ">kev+pam</a>
@@ -516,15 +516,15 @@ function GuestsList() {
 
 
 
-
-      </div>
-
-
-      <div className={'p-4 lg:text-base flex justify-center text-[#6d6d6d]'}>
+        <div className={'p-4 lg:text-base flex justify-center text-[#6d6d6d]'}>
         <a href='https://julbertpruel.netlify.app/' className='text-xs'>
           ⓒ {new Date().getFullYear()} Julbert Pruel
         </a>
       </div>
+      </div>
+
+     
+
     </section>
   )
 }
