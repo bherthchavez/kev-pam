@@ -9,7 +9,7 @@ import ReactCurvedText from 'react-curved-text';
 const Venue = () => {
     return (
         <>
-            <div name="kailan" className='w-full mb-20'>
+            <div name="entourage" className='w-full mb-20'>
                 <div className='flex flex-col sm:flex-row gap-4 justify-between items-center '>
                     
                     <div className='hidden sm:flex flex-col w-full sm:w-[45%]  '>
