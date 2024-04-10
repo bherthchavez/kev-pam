@@ -18,10 +18,10 @@ const Venue = () => {
                         <img src={entourage3} className='' />
                     </div>
 
-                    <div className='flex px-5 sm:px-0 pt-10 sm:pt-0 flex-col w-full sm:w-[55%] justify-center items-center text-[#EBE7E4] text-center text-sm sm:text-xl'>
+                    <div className='flex px-5 sm:px-0 pt-5 sm:pt-0 flex-col w-full sm:w-[55%] justify-center items-center text-[#EBE7E4] text-center text-sm sm:text-xl'>
 
                         <div className=''>
-                            <img src={entourage} className='w-56 sm:w-[30rem]' />
+                            <img src={entourage} className='w-80 sm:w-[30rem]' />
                         </div>
 
                         <div className='mb-3'>
@@ -154,7 +154,7 @@ const Venue = () => {
                             </div>
                         </div>
 
-                        <div className='mb-3'>
+                        <div className='mb-20 sm:mb-0'>
                             <h1 className='font-semibold'> flower ladies <br></br>
                                 <p className='mt-1 font-light'>Tala Maria Delos Reyes</p>
                                 <p className='mt-1 font-light'>Julien Mackenzie Tolentino</p>
