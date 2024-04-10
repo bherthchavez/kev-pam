@@ -3,6 +3,7 @@ import useApi from "../hooks/useAPI";
 import pg from '../assets/pj.png'
 import firebase from "../firebase";
 import { FiRefreshCw } from "react-icons/fi";
+import Guest from "./Guest";
 
 function GuestsList() {
 
@@ -16,6 +17,7 @@ function GuestsList() {
   const [wrongPassword, setWrongPassword] = useState('')
   // eslint-disable-next-line no-unused-vars
   const [refetchTrigger, setRefetchTrigger] = useState(false);
+  const [search, setsearch] = useState("");
 
   const [details, setDetails] = useState(
     {
@@ -36,13 +38,18 @@ function GuestsList() {
       try {
         const result = await getGuestsList()
         const filterdByStatus = result.sort((a, b) => a.status > b.status ? 1 : -1)
+        
         const filterByDate = filterdByStatus.sort((a, b) => {
           let c = new Date(a.updatedDate)
           let d = new Date(b.updatedDate)
           return c - d
         })
-        setInvited(filterByDate)
-        setFilteredInvited(filterByDate)
+
+        // const filteredBySearch = search &&  filterByDate.filter(guest=> guest.f_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1) || guest.l_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1)
+      
+        
+        setInvited(filterByDate.filter(inv => inv.f_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1) || inv.l_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1)
+        setFilteredInvited(filterByDate.filter(inv => inv.f_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1) || inv.l_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1)
 
       } catch (error) {
         console.log('Error fetching data:', error);
@@ -99,8 +106,6 @@ function GuestsList() {
   }
 
   const invEdit = (id) => {
-
-
     const existing = invited.find(inv => inv.id === id)
     if (existing) {
       setDetails(existing)
@@ -141,6 +146,13 @@ function GuestsList() {
     }
   }
 
+  const handleSearch = (text) => {
+    setsearch(text);
+
+  };
+
+
+
   const filteredByStatus = (status) => {
     setFilterByStatus(true)
 
@@ -157,6 +169,8 @@ function GuestsList() {
 
 
   }
+
+  const tableContent = filteredInvited.map((inv) => <Guest key={inv.id} guests={inv} search={search} invEdit={invEdit} />)
 
   return (
     <section className="flex flex-col justify-between bg-[#000] h-screen  font-sans">
@@ -187,10 +201,9 @@ function GuestsList() {
                   <p onClick={() => filteredByStatus('attending')} className="text-xs cursor-pointer">A  <span className="text-green-700  text-sm">{invited.filter(inv => inv.status === 'attending').length}</span></p>
                   <p onClick={() => filteredByStatus('not attending')} className="text-xs cursor-pointer">N <span className="text-red-700  text-sm">{invited.filter(inv => inv.status === 'not attending').length}</span></p>
                   <p onClick={() => filteredByStatus('pending')} className="text-xs cursor-pointer">P <span className="text-orange-700  text-sm">{invited.filter(inv => inv.status === 'pending').length}</span></p>
-                  <p onClick={() => setFilterByStatus(false)} className="text-xs cursor-pointer">T <span className="text-blue-700  text-xs">{invited.length}</span></p>
-                  <p onClick={() => filteredByStatus('both')} className="text-xs cursor-pointer">SBH <span className="text-pink-700">{invited.filter(inv => inv.side === 'both').length}</span></p>
-                  <p onClick={() => filteredByStatus('paula')} className="text-xs cursor-pointer">SP <span className="text-indigo-700  text-sm">{invited.filter(inv => inv.side === 'paula').length}</span></p>
-                  <p onClick={() => filteredByStatus('berth')} className="text-xs cursor-pointer">SB <span className="text-purple-700  text-sm">{invited.filter(inv => inv.side === 'berth').length}</span></p>
+                  <p onClick={() => setRefetchTrigger(prev => !prev)} className="text-xs cursor-pointer">T <span className="text-blue-700  text-xs">{invited.length}</span></p>
+                  <p onClick={() => filteredByStatus('pamela')} className="text-xs cursor-pointer">SP <span className="text-indigo-700  text-sm">{invited.filter(inv => inv.side === 'pamela').length}</span></p>
+                  <p onClick={() => filteredByStatus('kevin')} className="text-xs cursor-pointer">SK <span className="text-purple-700  text-sm">{invited.filter(inv => inv.side === 'kevin').length}</span></p>
 
                 </div>
                 {editInv
@@ -217,6 +230,43 @@ function GuestsList() {
                   </div>
                   :
                   <div className="flex justify-center items-center gap-6">
+                   {!addInv &&
+                   
+                    <div className="pr-0 sm:pr-4">
+                      <label htmlFor="table-search" className="sr-only">
+                        Search
+                      </label>
+                      <div className="relative">
+                        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none shrink-0">
+                          <svg
+                            className="w-4 h-4  text-gray-500"
+                            xmlns="http://www.w3.org/2000/svg"
+                            // className="h-4 w-4"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                            />
+                          </svg>
+                        </div>
+                        <input
+                          type="text"
+                          id="table-search"
+                          className="w-full pl-10 p-2 block py-2 tracking-widest  px-3 text-xs  bg-slate-800 text-gray-100 border  border-gray-800  dark:focus:border-gray-700 outline-none focus:border-gray-300  focus:shadow-sm "
+                          placeholder="Search..."
+                          value={search}
+                          onChange={(e) => handleSearch(e.target.value)}
+
+                        />
+                      </div>
+                    </div>
+                   }
+                   
                     <button
                       onClick={() => setAddInv(prev => !prev)}
                       className={!addInv ? `py-2 px-7 text-sm  tracking-widest bg-blue-950 hover:bg-blue-900 text-gray-300 shadow-md` : `py-2 px-7 tracking-widest text-sm bg-transparent border-2 border-red-900  text-red-600 hover:bg-red-950 hover:text-gray-300 hover:shadow-md`}>
@@ -353,9 +403,8 @@ function GuestsList() {
                           value={details.side}
                         >
                           <option className="text-slate-800" value=""></option>
-                          <option className="text-slate-800" value="paula" >Paula</option>
-                          <option className="text-slate-800" value="berth" >Berth</option>
-                          <option className="text-slate-800" value="both" >Both</option>
+                          <option className="text-slate-800" value="pamela" >Pamela</option>
+                          <option className="text-slate-800" value="kevin" >Kevin</option>
                         </select>
                       </label>
                     </div>
@@ -390,54 +439,9 @@ function GuestsList() {
 
                         <tbody className="divide-y  divide-slate-800 text-gray-300">
 
-                          {invited && !filterByStatus
-                            && invited.map(inv => (
-                              <tr
-                                onClick={() => invEdit(inv.id)}
-                                className="hover:bg-slate-800 cursor-pointer" key={inv.id}>
-                                <td className="whitespace-nowrap px-4 py-2 font-medium capitalize">
-                                  {inv.f_name}  {inv.l_name}
-                                </td>
-                                <td className="whitespace-nowrap px-4 py-2 capitalize">
-                                  <span className={inv.status.toLowerCase() == 'attending'
-                                    ? `inline-flex items-center justify-center border-[1px] bg-transparent rounded-full border-emerald-900 px-2.5 py-0.5 text-emerald-200`
-                                    : inv.status.toLowerCase() == 'not attending'
-                                      ? `inline-flex items-center justify-center border-[1px] bg-transparent rounded-full border-red-200 px-2.5 py-0.5 text-red-200`
-                                      : `inline-flex items-center justify-center border-[1px] bg-transparent rounded-full border-amber-200 px-2.5 py-0.5 text-amber-200`}>
-                                    <p className="text-xs"> {inv.status}</p>
-                                  </span>
-                                </td>
-                                <td className="whitespace-nowrap px-4 py-2 capitalize">{inv.updatedDate}</td>
-                                <td className="whitespace-nowrap px-4 py-2 capitalize">{inv.side}</td>
-                                <td className="whitespace-nowrap px-4 py-2 capitalize">{inv.remarks}</td>
-                                <td className="whitespace-nowrap px-4 py-2 capitalize">{inv.gender}</td>
-                              </tr>
-                            ))
-                          }
-                          {invited && filterByStatus
-                            && filteredInvited.map(inv => (
-                              <tr
-                                onClick={() => invEdit(inv.id)}
-                                className="hover:bg-slate-800  cursor-pointer" key={inv.id}>
-                                <td className="whitespace-nowrap px-4 py-2 font-medium capitalize">
-                                  {inv.f_name}  {inv.l_name}
-                                </td>
-                                <td className="whitespace-nowrap px-4 py-2 capitalize">
-                                  <span className={inv.status.toLowerCase() == 'attending'
-                                    ? `inline-flex items-center justify-center border-[1px] bg-transparent rounded-full border-emerald-900 px-2.5 py-0.5 text-emerald-200`
-                                    : inv.status.toLowerCase() == 'not attending'
-                                      ? `inline-flex items-center justify-center border-[1px] bg-transparent rounded-full border-red-900 px-2.5 py-0.5 text-red-200`
-                                      : `inline-flex items-center justify-center border-[1px] bg-transparent rounded-full border-amber-900 px-2.5 py-0.5 text-amber-200`}>
-                                    <p className="text-xs"> {inv.status}</p>
-                                  </span>
-                                </td>
-                                <td className="whitespace-nowrap px-4 py-2 capitalize">{inv.updatedDate}</td>
-                                <td className="whitespace-nowrap px-4 py-2 capitalize">{inv.side}</td>
-                                <td className="whitespace-nowrap px-4 py-2 capitalize">{inv.remarks}</td>
-                                <td className="whitespace-nowrap px-4 py-2 capitalize">{inv.gender}</td>
-                              </tr>
-                            ))
-                          }
+                       
+
+                          {tableContent}
 
 
                         </tbody>
