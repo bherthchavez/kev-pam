@@ -54,10 +54,10 @@ function GuestsList() {
   }, [refetchTrigger])
 
   const saveInv = () => {
-    if (details.first_name && details.last_name && details.status && details.gender) {
+    if (details.f_name && details.l_name && details.status && details.gender) {
 
       firebase
-        .firestore().collection('invited')
+        .firestore().collection('guestsList')
         .add(details)
         .then(() => {
           console.log('New Invited SAVED!')
@@ -69,10 +69,10 @@ function GuestsList() {
     }
   }
   const updateInv = () => {
-    if (details.first_name && details.last_name && details.status && details.gender) {
+    if (details.f_name && details.l_name && details.status && details.gender) {
 
       firebase
-        .firestore().collection('invited')
+        .firestore().collection('guestsList')
         .doc(details.id)
         .update(details)
         .then(() => {
@@ -122,10 +122,10 @@ function GuestsList() {
   }
 
   const deleteInv = () => {
-    if (confirm(`Are You Sure You want to Delete! ${details.first_name} ${details.last_name}`)) {
+    if (confirm(`Are You Sure You want to Delete! ${details.f_name} ${details.l_name}`)) {
       console.log("Deleted")
       firebase
-        .firestore().collection('invited')
+        .firestore().collection('guestsList')
         .doc(details.id)
         .delete()
         .then(() => {
@@ -159,7 +159,7 @@ function GuestsList() {
   }
 
   return (
-    <section name='Kulay' className="flex flex-col justify-between bg-custom2 bg-local bg-[#000] h-screen bg-center bg-cover font-sans">
+    <section  className="flex flex-col justify-between bg-custom2 bg-local bg-[#000] h-screen bg-center bg-cover font-sans">
 
       <div className="container flex flex-col p-8 gap-2 sm:gap-5 mx-auto md:p-8 max-w-[1200px]">
         <div className='flex flex-col justify-center items-center'>
@@ -182,7 +182,7 @@ function GuestsList() {
               <div className=" py-2 px-3 flex flex-col sm:flex-row gap-3 justify-between items-center ">
                 <div className="flex gap-5 sm:gap-8 items-center font-bold text-gray-500">
                   <p onClick={() => setRefetchTrigger(prev => !prev)}
-                    className="cursor-pointer hover:text-[#b97b33] p-2 rounded-full bg-[#f5d3ad] text-[#b97b33] shadow-sm">
+                    className="cursor-pointer hover:text-gray-400 p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-blue-700 shadow-sm">
                     <FiRefreshCw /></p>
                   <p onClick={() => filteredByStatus('attending')} className="text-xs cursor-pointer">A  <span className="text-green-700  text-sm">{invited.filter(inv => inv.status === 'attending').length}</span></p>
                   <p onClick={() => filteredByStatus('not attending')} className="text-xs cursor-pointer">N <span className="text-red-700  text-sm">{invited.filter(inv => inv.status === 'not attending').length}</span></p>
@@ -198,19 +198,19 @@ function GuestsList() {
                   <div className="flex justify-center items-center gap-3">
                     <button
                       onClick={cancelUpdateAdd}
-                      className={!editInv ? `py-2 px-4 text-sm rounded-md  bg-[#db9b51] hover:bg-[#b97b33] text-white shadow-md` : `py-2 px-7 text-sm bg-transparent border-2 border-gray-500 rounded-md text-gray-600 hover:bg-[#db9b51] hover:text-white hover:border-none hover:shadow-md`}>
+                      className={!editInv ? `py-2 px-4 text-sm rounded-md  bg-[#db9b51] hover:bg-[#b97b33] text-gray-300 shadow-md` : `py-2 px-7 tracking-widest text-sm bg-transparent border-2 border-red-900  text-red-600 hover:bg-red-950 hover:text-gray-300 hover:shadow-md`}>
                       Cancel
                     </button>
 
 
                     <button
                       onClick={updateInv}
-                      className="py-2 px-4 text-sm rounded-md  bg-blue-800 hover:bg-[#b97b33] text-white shadow-md">
+                      className="py-2 px-4 text-sm tracking-widest  bg-blue-900 hover:bg-blue-800 text-gray-300 shadow-md">
                       Update
                     </button>
                     <button
                       onClick={deleteInv}
-                      className="py-2 px-4 text-sm rounded-md  bg-red-700 hover:bg-[#b97b33] text-white shadow-md">
+                      className="py-2 px-4 text-sm tracking-widest  bg-red-900 hover:bg-red-800 text-gray-300 shadow-md">
                       Delete
                     </button>
 
@@ -219,7 +219,7 @@ function GuestsList() {
                   <div className="flex justify-center items-center gap-6">
                     <button
                       onClick={() => setAddInv(prev => !prev)}
-                      className={!addInv ? `py-2 px-7 text-sm rounded-md  bg-[#db9b51] hover:bg-[#b97b33] text-white shadow-md` : `py-2 px-7 text-sm bg-transparent border-2 border-gray-500 rounded-md text-gray-600 hover:bg-[#db9b51] hover:text-white hover:border-none hover:shadow-md`}>
+                      className={!addInv ? `py-2 px-7 text-sm  tracking-widest bg-blue-950 hover:bg-blue-900 text-gray-300 shadow-md` : `py-2 px-7 tracking-widest text-sm bg-transparent border-2 border-red-900  text-red-600 hover:bg-red-950 hover:text-gray-300 hover:shadow-md`}>
                       {addInv ? 'Cancel' : 'Add'}
                     </button>
 
@@ -227,7 +227,7 @@ function GuestsList() {
                       &&
                       <button
                         onClick={saveInv}
-                        className="py-2 px-7 text-sm rounded-md  bg-green-700 hover:bg-[#b97b33] text-white shadow-md">
+                        className="py-2 px-7 text-sm tracking-widest  bg-green-900 hover:bg-green-800 text-gray-300 shadow-md">
                         Save
                       </button>
                     }
@@ -236,130 +236,137 @@ function GuestsList() {
               </div>
 
               <div className="flex flex-col items-center justify-center">
-                <div className="overflow-x-auto h-[330px] sm:h-[400px] w-[300px] sm:w-full  rounded-lg border border-gray-200 bg-white">
+                <div className="overflow-x-auto h-[330px] sm:h-[400px] w-[300px] sm:w-full border border-slate-800 bg-slate-950">
 
 
                   {addInv || editInv
                     ?
-                    <div className="min-w-full p-5 sm:p-10 flex flex-col justify-center items-center gap-3">
+                    <div className="min-w-full p-5 sm:p-10 flex flex-col text-white justify-center items-center gap-3">
 
 
-                     
+
 
                       <label
                         htmlFor="Pangalan"
-                        className="block overflow-hidden w-full border border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
+                        className="block overflow-hidden w-full border text-base border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
                       >
-                        <span className="text-sm tracking-wider font-medium text-gray-400"> First Name </span>
+                        <span className="text-sm tracking-widest font-light text-gray-500"> First Name </span>
 
                         <input
                           id="Pangalan"
                           name="Pangalan"
                           type="text"
                           required
-                          className="mt-1 w-full uppercase tracking-widest  border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 text-xs sm:text-sm"
+                          className="mt-1 w-full uppercase bg-transparent tracking-widest  border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 "
                           onChange={(e) => setDetails({ ...details, f_name: e.target.value.toLowerCase() })}
                           value={details.f_name}
 
                         />
                       </label>
 
-
-
-
-
                       <label
                         htmlFor="Apelyido"
-                        className="relative block w-full overflow-hidden rounded-md border-2 border-gray-500 px-3 pt-3 shadow-sm focus-within:border-[#f7ce9f] focus-within:ring-1 focus-within:ring-[#916533]"
+                        className="block overflow-hidden w-full border border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
                       >
+                        <span className="text-sm tracking-widest font-light text-gray-500"> Last Name </span>
+
                         <input
                           id="apelyido"
                           name="apelyido"
                           type="text"
-                          placeholder="Apelyido "
                           required
-                          className="peer uppercase tracking-widest h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-                          onChange={(e) => setDetails({ ...details, last_name: e.target.value.toLowerCase() })}
+                          className="mt-1 w-full uppercase tracking-widest bg-transparent border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 "
+                          onChange={(e) => setDetails({ ...details, l_name: e.target.value.toLowerCase() })}
                           value={details.l_name}
 
                         />
-
-                        <span
-                          className="absolute tracking-widest start-3 top-3 -translate-y-1/2 text-xs text-gray-500 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs"
-                        >
-                          Apelyido
-                        </span>
                       </label>
 
-                      <div className="w-full">
+                      <label
+                        htmlFor="Status"
+                        className="block overflow-hidden w-full border border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
+                      >
+                        <span className="text-sm tracking-widest font-light text-gray-500"> Status </span>
+
                         <select
                           name="Status"
                           id="Status"
-                          className="mt-1.5 w-full uppercase tracking-widest  text-gray-700 sm:text-sm rounded-md border-2 border-gray-500 px-3 py-3 shadow-sm focus-within:border-[#f7ce9f] focus-within:ring-1 focus-within:ring-[#916533]"
+                          className="mt-1.5 w-full uppercase tracking-widest bg-transparent"
                           onChange={(e) => setDetails({ ...details, status: e.target.value.toLowerCase() })}
                           value={details.status}
                         >
-                          <option value="">Status</option>
-                          <option value="pending">Pending</option>
-                          <option value="attending" >Attending</option>
-                          <option value="not attending" >Not Attending</option>
+                          <option className="text-slate-800" value=""></option>
+                          <option className="text-slate-800" value="pending">Pending</option>
+                          <option className="text-slate-800" value="attending" >Attending</option>
+                          <option className="text-slate-800" value="not attending" >Not Attending</option>
                         </select>
-                      </div>
-                      <div className="w-full">
+                      </label>
+
+                      <label
+                        htmlFor="Gender"
+                        className="block overflow-hidden w-full border border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
+                      >
+                        <span className="text-sm tracking-widest font-light text-gray-500"> Gender </span>
+
                         <select
                           name="Gender"
                           id="Gender"
-                          className="mt-1.5 w-full uppercase tracking-widest  text-gray-700 sm:text-sm rounded-md border-2 border-gray-500 px-3 py-3 shadow-sm focus-within:border-[#f7ce9f] focus-within:ring-1 focus-within:ring-[#916533]"
+                          className="mt-1.5 w-full uppercase tracking-widest bg-transparent"
                           onChange={(e) => setDetails({ ...details, gender: e.target.value.toLowerCase() })}
                           value={details.gender}
                         >
-                          <option value="">Gender</option>
-                          <option value="female" >Female</option>
-                          <option value="male" >Male</option>
+                          <option className="text-slate-800" value=""></option>
+                          <option className="text-slate-800" value="female" >Female</option>
+                          <option className="text-slate-800" value="male" >Male</option>
                         </select>
-                      </div>
+                      </label>
 
                       <label
                         htmlFor="Remarks"
-                        className="relative block w-full overflow-hidden rounded-md border-2 border-gray-500 px-3 pt-3 shadow-sm focus-within:border-[#f7ce9f] focus-within:ring-1 focus-within:ring-[#916533]"
+                        className="block overflow-hidden w-full border border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
                       >
+                        <span className="text-sm tracking-widest font-light text-gray-500"> Remarks</span>
+
                         <input
                           id="Remarks"
                           name="Remarks"
                           type="text"
-                          placeholder="Remarks "
                           required
-                          className="peer uppercase tracking-widest h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                          className="mt-1 w-full uppercase tracking-widest bg-transparent border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 "
                           onChange={(e) => setDetails({ ...details, remarks: e.target.value.toLowerCase() })}
                           value={details.remarks}
-                        />
 
-                        <span
-                          className="absolute tracking-widest start-3 top-3 -translate-y-1/2 text-xs text-gray-500 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs"
-                        >
-                          Remarks
-                        </span>
+                        />
                       </label>
-                      <div className="w-full">
+
+                      <label
+                        htmlFor="Side"
+                        className="block overflow-hidden w-full border border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
+                      >
+                        <span className="text-sm tracking-widest text-gray-500"> Side </span>
+
                         <select
                           name="Side"
                           id="Side"
-                          className="mt-1.5 w-full uppercase tracking-widest  text-gray-700 sm:text-sm rounded-md border-2 border-gray-500 px-3 py-3 shadow-sm focus-within:border-[#f7ce9f] focus-within:ring-1 focus-within:ring-[#916533]"
+                          className="mt-1.5 w-full uppercase tracking-widest bg-transparent"
                           onChange={(e) => setDetails({ ...details, side: e.target.value.toLowerCase() })}
                           value={details.side}
                         >
-                          <option value="">Side</option>
-                          <option value="paula" >Paula</option>
-                          <option value="berth" >Berth</option>
-                          <option value="both" >Both</option>
+                          <option className="text-slate-800" value=""></option>
+                          <option className="text-slate-800" value="paula" >Paula</option>
+                          <option className="text-slate-800" value="berth" >Berth</option>
+                          <option className="text-slate-800" value="both" >Both</option>
                         </select>
-                      </div>
+                      </label>
+
+
+
                     </div>
                     :
                     <>
 
-                      <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
-                        <thead className="text-left bg-[#bd874e] text-white ">
+                      <table className="min-w-full tracking-widest divide-y-2 divide-slate-800 bg-black text-sm">
+                        <thead className="text-left bg-slate-900 text-gray-500 ">
                           <tr>
 
                             <th className="whitespace-nowrap px-4 py-2 font-medium ">
@@ -384,18 +391,24 @@ function GuestsList() {
                           </tr>
                         </thead>
 
-                        <tbody className="divide-y divide-gray-200 text-gray-700">
+                        <tbody className="divide-y  divide-slate-800 text-gray-300">
 
                           {invited && !filterByStatus
                             && invited.map(inv => (
                               <tr
                                 onClick={() => invEdit(inv.id)}
-                                className="hover:bg-[#ffe9d3] cursor-pointer" key={inv.id}>
+                                className="hover:bg-slate-800 cursor-pointer" key={inv.id}>
                                 <td className="whitespace-nowrap px-4 py-2 font-medium capitalize">
                                   {inv.f_name}  {inv.l_name}
                                 </td>
-                                <td className={inv.status.toLowerCase() == 'attending' ? `whitespace-nowrap px-4 py-2 capitalize text-green-600 font-semibold` : inv.status.toLowerCase() == 'not attending' ? `whitespace-nowrap px-4 py-2 capitalize text-red-600 font-semibold` : `whitespace-nowrap px-4 py-2 capitalize text-orange-600 font-semibold`}>
-                                  {inv.status}
+                                <td className="whitespace-nowrap px-4 py-2 capitalize">
+                                  <span className={inv.status.toLowerCase() == 'attending'
+                                    ? `inline-flex items-center justify-center border-[1px] bg-transparent rounded-full border-emerald-900 px-2.5 py-0.5 text-emerald-200`
+                                    : inv.status.toLowerCase() == 'not attending'
+                                      ? `inline-flex items-center justify-center border-[1px] bg-transparent rounded-full border-red-200 px-2.5 py-0.5 text-red-200`
+                                      : `inline-flex items-center justify-center border-[1px] bg-transparent rounded-full border-amber-200 px-2.5 py-0.5 text-amber-200`}>
+                                    <p className="text-xs"> {inv.status}</p>
+                                  </span>
                                 </td>
                                 <td className="whitespace-nowrap px-4 py-2 capitalize">{inv.updatedDate}</td>
                                 <td className="whitespace-nowrap px-4 py-2 capitalize">{inv.side}</td>
@@ -408,12 +421,18 @@ function GuestsList() {
                             && filteredInvited.map(inv => (
                               <tr
                                 onClick={() => invEdit(inv.id)}
-                                className="hover:bg-[#ffe9d3] cursor-pointer" key={inv.id}>
+                                className="hover:bg-slate-800  cursor-pointer" key={inv.id}>
                                 <td className="whitespace-nowrap px-4 py-2 font-medium capitalize">
                                   {inv.f_name}  {inv.l_name}
                                 </td>
-                                <td className={inv.status.toLowerCase() == 'attending' ? `whitespace-nowrap px-4 py-2 capitalize text-green-600 font-semibold` : inv.status.toLowerCase() == 'not attending' ? `whitespace-nowrap px-4 py-2 capitalize text-red-600 font-semibold` : `whitespace-nowrap px-4 py-2 capitalize text-orange-600 font-semibold`}>
-                                  {inv.status}
+                                <td className="whitespace-nowrap px-4 py-2 capitalize">
+                                  <span className={inv.status.toLowerCase() == 'attending'
+                                    ? `inline-flex items-center justify-center border-[1px] bg-transparent rounded-full border-emerald-900 px-2.5 py-0.5 text-emerald-200`
+                                    : inv.status.toLowerCase() == 'not attending'
+                                      ? `inline-flex items-center justify-center border-[1px] bg-transparent rounded-full border-red-900 px-2.5 py-0.5 text-red-200`
+                                      : `inline-flex items-center justify-center border-[1px] bg-transparent rounded-full border-amber-900 px-2.5 py-0.5 text-amber-200`}>
+                                    <p className="text-xs"> {inv.status}</p>
+                                  </span>
                                 </td>
                                 <td className="whitespace-nowrap px-4 py-2 capitalize">{inv.updatedDate}</td>
                                 <td className="whitespace-nowrap px-4 py-2 capitalize">{inv.side}</td>
@@ -425,7 +444,7 @@ function GuestsList() {
 
 
                         </tbody>
-                        <thead className="text-left bg-[#bd874e] text-white ">
+                        <thead className="text-left bg-slate-900 text-gray-500 ">
                           <tr>
 
                             <th className="whitespace-nowrap px-4 py-2 font-medium ">
@@ -460,7 +479,7 @@ function GuestsList() {
             :
             <form
               onSubmit={checkPass}
-              className="flex flex-col w-64 sm:w-96 p-8 gap-3 sm:gap-5 mx-auto md:p-8 max-w-[1200px]">
+              className="flex flex-col w-80 sm:w-96 p-8 gap-3 sm:gap-5 mx-auto md:p-8 max-w-[1200px]">
 
               <label
                 htmlFor="UserEmail"
