@@ -47,11 +47,13 @@ const Venue = () => {
                         </div>
                     
                         
-                        <h1 className='font-extrabold mb-5'> saturday, june 08, 2024 <br></br> 3:30 in the afternoon</h1>
+                        <h1 className='font-bold mb-5'> saturday, june 08, 2024 <br></br> 
+                        <p className='mt-2'>3:30 in the afternoon</p>
+                        </h1>
                         <a href='https://maps.app.goo.gl/wEwkVMmAmMhBcFVE7'
                             target='_blank' rel='noreferrer noopener'
-                            className='underline font-extrabold mb-5'>SAVANNA FARM TAGAYTAY  <br></br>
-                            <p className='font-thin text-lg'>Sicat Road, Alfonso, Cavite</p>
+                            className='underline font-bold mb-16'>SAVANNA FARM TAGAYTAY  <br></br>
+                            <p className='font-thin text-sm sm:text-lg'>Sicat Road, Alfonso, Cavite</p>
                             </a>
                     </div>
 
