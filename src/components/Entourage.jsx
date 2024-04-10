@@ -49,7 +49,7 @@ const Venue = () => {
                             <h1 className='font-semibold'>principal sponsors </h1>
                         </div>
 
-                        <div className='flex gap-5 sm:gap-20 mb-3'>
+                        <div className='flex gap-5 sm:gap-20 mb-5'>
                             <div>
                                 <p className='mt-1 font-light'>Mr. Joselito Santos</p>
                                 <p className='mt-1 font-light'>Mr. Yonobev Alibusa</p>
@@ -68,24 +68,24 @@ const Venue = () => {
                             </div>
                         </div>
 
-                        <div className='flex gap-5 sm:gap-20 mb-3'>
+                        <div className='flex gap-5 sm:gap-20 mb-5'>
                             <div>
-                                <h1 className='font-semibold mb-5'> best men <br></br>
+                                <h1 className='font-semibold '> best men <br></br>
                                     <p className='mt-1 font-light'>Keith Jeremy Topino</p>
                                     <p className='mt-1 font-light'>Klyde Jefferson Topino</p>
                                 </h1>
                             </div>
                             <div>
-                                <h1 className='font-semibold mb-5'> maids of honor <br></br>
+                                <h1 className='font-semibold '> maids of honor <br></br>
                                     <p className='mt-1 font-light'>Kyla Caughlin Alibusa</p>
                                     <p className='mt-1 font-light'>Aleksandrei Miles Alibusa</p>
                                 </h1>
                             </div>
                         </div>
 
-                        <div className='flex gap-5 sm:gap-20 mb-3'>
+                        <div className='flex gap-5 sm:gap-20 mb-5'>
                             <div>
-                                <h1 className='font-semibold mb-5'> groomsmen <br></br>
+                                <h1 className='font-semibold '> groomsmen <br></br>
                                     <p className='mt-1 font-light'>Gleo Dominise</p>
                                     <p className='mt-1 font-light'>Lloyd Sidney Cuevas</p>
                                     <p className='mt-1 font-light'>Joed Faro</p>
@@ -96,7 +96,7 @@ const Venue = () => {
                                 </h1>
                             </div>
                             <div>
-                                <h1 className='font-semibold mb-5'> bridesmaids <br></br>
+                                <h1 className='font-semibold '> bridesmaids <br></br>
                                     <p className='mt-1 font-light'>Immary Donna Tolentino</p>
                                     <p className='mt-1 font-light'>Jessa Enriquez</p>
                                     <p className='mt-1 font-light'>Nikka Alexandra Santos</p>
@@ -110,7 +110,7 @@ const Venue = () => {
                             <h1 className='font-semibold'>secondary sponsors </h1>
                         </div>
 
-                        <div className='flex gap-5 sm:gap-10 mb-3'>
+                        <div className='flex gap-5 sm:gap-10 mb-5'>
                             <div className='font-light  text-right'>
                                 <p className='mt-1 '>Paula Jodine Prue</p>
                                 <p className='mt-1 '>Trisha Anne De Guia</p>
@@ -130,12 +130,12 @@ const Venue = () => {
 
                         <div className='flex gap-5 sm:gap-20 mb-5'>
                             <div>
-                                <h1 className='font-semibold mb-5'> bible bearer <br></br>
+                                <h1 className='font-semibold'> bible bearer <br></br>
                                     <p className='mt-1 font-light'>Aundray Jairus Santos</p>
                                 </h1>
                             </div>
                             <div>
-                                <h1 className='font-semibold mb-5'> ring bearer <br></br>
+                                <h1 className='font-semibold'> ring bearer <br></br>
                                     <p className='mt-1 font-light'>Sevigny Laurence Tolentino</p>
                                 </h1>
                             </div>
@@ -143,12 +143,12 @@ const Venue = () => {
                         
                         <div className='flex gap-5 sm:gap-20 mb-5'>
                             <div>
-                                <h1 className='font-semibold mb-5'> coin bearer <br></br>
+                                <h1 className='font-semibold '> coin bearer <br></br>
                                     <p className='mt-1 font-light'>Dwayne Godfrey Alibusa</p>
                                 </h1>
                             </div>
                             <div>
-                                <h1 className='font-semibold mb-5'> flower girl <br></br>
+                                <h1 className='font-semibold '> flower girl <br></br>
                                     <p className='mt-1 font-light'>Triela Rocket De Guia</p>
                                 </h1>
                             </div>
