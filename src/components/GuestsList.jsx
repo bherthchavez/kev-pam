@@ -159,9 +159,9 @@ function GuestsList() {
   }
 
   return (
-    <section  className="flex flex-col justify-between bg-custom2 bg-local bg-[#000] h-screen bg-center bg-cover font-sans">
+    <section  className="flex flex-col justify-between bg-[#000] h-screen  font-sans">
 
-      <div className="container flex flex-col p-8 gap-2 sm:gap-5 mx-auto md:p-8 max-w-[1200px]">
+      <div className="container flex flex-col px-2 sm:px-8 py-8 sn:py-8 gap-2 sm:gap-5 mx-auto  max-w-[1200px]">
         <div className='flex flex-col justify-center items-center'>
           <div className="flex flex-col justify-center items-center text-white">
             <a href='/' className="cursor-pointer  rounded px-2 tracking-widest font-bold text-xl ">kev+pam</a>
@@ -179,7 +179,7 @@ function GuestsList() {
 
               </div>
 
-              <div className=" py-2 px-3 flex flex-col sm:flex-row gap-3 justify-between items-center ">
+              <div className=" py-2 flex flex-col sm:flex-row gap-3 justify-between items-center ">
                 <div className="flex gap-5 sm:gap-8 items-center font-bold text-gray-500">
                   <p onClick={() => setRefetchTrigger(prev => !prev)}
                     className="cursor-pointer hover:text-gray-400 p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-blue-700 shadow-sm">
@@ -236,7 +236,7 @@ function GuestsList() {
               </div>
 
               <div className="flex flex-col items-center justify-center">
-                <div className="overflow-x-auto h-[330px] sm:h-[400px] w-[300px] sm:w-full border border-slate-800 bg-slate-950">
+                <div className="overflow-x-auto h-[360px] sm:h-[400px] w-full border border-slate-800 bg-slate-950">
 
 
                   {addInv || editInv
@@ -358,9 +358,6 @@ function GuestsList() {
                           <option className="text-slate-800" value="both" >Both</option>
                         </select>
                       </label>
-
-
-
                     </div>
                     :
                     <>
