@@ -12,28 +12,35 @@ const Navbar = () => {
 
     return (
         <>
-            <div className={`z-20 bg-[#000] tracking-widest font-bold text-[1.4rem]  fixed flex justify-between px-8 sm:px-10 md:px-20 lg:px-42 xl:px-52 2xl:px-[17rem] items-center top-0 w-screen h-28 text-white`}>
+            <div className={`z-20 bg-[#000] tracking-widest font-bold text-[1.4rem]  fixed flex justify-between px-8 sm:px-24  items-center top-0 w-screen h-28 text-white`}>
                 <a href='/' className="cursor-pointer  rounded px-2">
                     <h1 className='text-[1.2rem] '> kev+pam</h1>
                 </a>
                 <ul className="hidden md:flex  rounded gap-8 ">
                     <Link to='kailan' smooth={true} duration={500}>
                         <li className='p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
-                            <span className='w-full text-md text-[#fef1e2] cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
+                            <span className='w-full text-sm sm:text-base md:text-lg lg:text-xl text-[#fef1e2] cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
                                 kailan at saan?
+                            </span>
+                        </li>
+                    </Link>
+                    <Link to='entourage' smooth={true} duration={500}>
+                        <li className='p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
+                            <span className='w-full text-sm sm:text-xl text-[#fef1e2] cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
+                                entourage
                             </span>
                         </li>
                     </Link>
                     <Link to='paghahanda' smooth={true} duration={500}>
                         <li className='p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
-                            <span className='w-full text-md text-[#fef1e2] cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
+                            <span className='w-full text-sm sm:text-xl text-[#fef1e2] cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
                                 outfit check!
                             </span>
                         </li>
                     </Link>
                     <Link to='kulay' smooth={true} duration={500}>
                         <li className='p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
-                            <span className='w-full text-md text-[#fef1e2] cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
+                            <span className='w-full text-sm sm:text-xl text-[#fef1e2] cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
                                 rsvp
                             </span>
                         </li>
@@ -71,6 +78,11 @@ const Navbar = () => {
                         <Link to='kailan' smooth={true} duration={500}>
                             <li onClick={handleNav} className=' cursor-pointer '>
                                 kailan at saan?
+                            </li>
+                        </Link>
+                        <Link to='entourage' smooth={true} duration={500}>
+                            <li onClick={handleNav} className=' cursor-pointer '>
+                                entourage
                             </li>
                         </Link>
                         <Link to='paghahanda' smooth={true} duration={500}>

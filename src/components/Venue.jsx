@@ -6,7 +6,7 @@ import ReactCurvedText from 'react-curved-text';
 const Venue = () => {
     return (
         <>
-            <div name="kailan" className='max-w-[1000px] mx-auto pt-32 pb-32'>
+            <div name="kailan" className='max-w-[1000px] mx-auto pt-16 pb-32'>
                 <div className='flex flex-col sm:flex-row gap-4 justify-around items-center px-10 sm:px-15 md:px-20 lg:px-42 xl:px-0 2xl:px-0'>
                     <div className='flex flex-col gap-5 text-white text-center text-base sm:text-2xl'>
                       
