@@ -295,7 +295,7 @@ function GuestsList() {
               </div>
 
               <div className="flex flex-col items-center justify-center">
-                <div className="overflow-x-auto h-[410px] w-full border border-slate-800 bg-slate-950">
+                <div className="overflow-x-auto h-[430px] w-full border border-slate-800 bg-slate-950">
 
 
                   {addInv || editInv
