@@ -62,7 +62,7 @@ function GuestsList() {
 
   const saveInv = () => {
     if (details.f_name && details.l_name && details.status && details.gender) {
-
+      setsearch("")
       firebase
         .firestore().collection('guestsList')
         .add(details)
@@ -76,6 +76,7 @@ function GuestsList() {
     }
   }
   const updateInv = () => {
+    setsearch("")
     if (details.f_name && details.l_name && details.status && details.gender) {
 
       firebase
@@ -106,6 +107,7 @@ function GuestsList() {
   }
 
   const invEdit = (id) => {
+    setsearch("")
     const existing = invited.find(inv => inv.id === id)
     if (existing) {
       setDetails(existing)
@@ -115,6 +117,7 @@ function GuestsList() {
   }
 
   const cancelUpdateAdd = () => {
+    setsearch("")
     setAddInv(false)
     setEditInv(false)
     setDetails({
@@ -127,6 +130,7 @@ function GuestsList() {
   }
 
   const deleteInv = () => {
+    setsearch("")
     if (confirm(`Are You Sure You want to Delete! ${details.f_name} ${details.l_name}`)) {
       console.log("Deleted")
       firebase
@@ -148,12 +152,12 @@ function GuestsList() {
 
   const handleSearch = (text) => {
     setsearch(text);
-
   };
 
 
 
   const filteredByStatus = (status) => {
+    setsearch("");
     setFilterByStatus(true)
 
     setFilteredInvited(invited)
@@ -168,6 +172,11 @@ function GuestsList() {
 
 
 
+  }
+
+  const refreshGuestsList = ()=>{
+    setsearch("");
+    setRefetchTrigger(prev => !prev)
   }
 
   const tableContent = filteredInvited.map((inv) => <Guest key={inv.id} guests={inv} search={search} invEdit={invEdit} />)
@@ -195,7 +204,7 @@ function GuestsList() {
 
               <div className=" py-2 flex flex-col sm:flex-row gap-3 justify-between items-center ">
                 <div className="flex gap-5 sm:gap-8 items-center font-bold text-gray-500">
-                  <p onClick={() => setRefetchTrigger(prev => !prev)}
+                  <p onClick={refreshGuestsList}
                     className="cursor-pointer hover:text-gray-400 p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-blue-700 shadow-sm">
                     <FiRefreshCw /></p>
                   <p onClick={() => filteredByStatus('attending')} className="text-xs cursor-pointer">A  <span className="text-green-700  text-sm">{invited.filter(inv => inv.status === 'attending').length}</span></p>
