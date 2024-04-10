@@ -128,7 +128,7 @@ const Venue = () => {
                             </div>
                         </div>
 
-                        <div className='flex gap-5 sm:gap-20 mb-3'>
+                        <div className='flex gap-5 sm:gap-20 mb-5'>
                             <div>
                                 <h1 className='font-semibold mb-5'> bible bearer <br></br>
                                     <p className='mt-1 font-light'>Aundray Jairus Santos</p>
@@ -141,7 +141,7 @@ const Venue = () => {
                             </div>
                         </div>
                         
-                        <div className='flex gap-5 sm:gap-20 mb-3'>
+                        <div className='flex gap-5 sm:gap-20 mb-5'>
                             <div>
                                 <h1 className='font-semibold mb-5'> coin bearer <br></br>
                                     <p className='mt-1 font-light'>Dwayne Godfrey Alibusa</p>
@@ -155,7 +155,7 @@ const Venue = () => {
                         </div>
 
                         <div className='mb-3'>
-                            <h1 className='font-semibold mb-5'> flower ladies <br></br>
+                            <h1 className='font-semibold'> flower ladies <br></br>
                                 <p className='mt-1 font-light'>Tala Maria Delos Reyes</p>
                                 <p className='mt-1 font-light'>Julien Mackenzie Tolentino</p>
                             </h1>
