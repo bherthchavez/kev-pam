@@ -57,8 +57,8 @@ const Venue = () => {
                             </a>
                     </div>
 
-                    <div className='w-full sm:w-[70%]'>
-                        <img src={saan} className='' />
+                    <div className='w-full sm:w-[70%] '>
+                        <img src={saan} className='object-contain' />
                     </div>
                 </div>
             </div>
