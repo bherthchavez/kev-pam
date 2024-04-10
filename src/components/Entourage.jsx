@@ -112,7 +112,7 @@ const Venue = () => {
 
                         <div className='flex gap-5 sm:gap-10 mb-5'>
                             <div className='font-light  text-right'>
-                                <p className='mt-1 '>Paula Jodine Prue</p>
+                                <p className='mt-1 '>Paula Jodine Pruel</p>
                                 <p className='mt-1 '>Trisha Anne De Guia</p>
                                 <p className='mt-1 '>May Alibusa</p>
                             </div>

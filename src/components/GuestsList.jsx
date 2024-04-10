@@ -295,7 +295,7 @@ function GuestsList() {
               </div>
 
               <div className="flex flex-col items-center justify-center">
-                <div className="overflow-x-auto h-[360px] sm:h-[400px] w-full border border-slate-800 bg-slate-950">
+                <div className="overflow-x-auto h-[410px] w-full border border-slate-800 bg-slate-950">
 
 
                   {addInv || editInv
@@ -529,7 +529,7 @@ function GuestsList() {
 
 
 
-        <div className={'p-4 lg:text-base flex justify-center text-slate-700'}>
+        <div className={' lg:text-base flex justify-center text-slate-700'}>
           <a href='https://julbertpruel.netlify.app/' className='text-xs'>
             ⓒ {new Date().getFullYear()} Julbert Pruel
           </a>
