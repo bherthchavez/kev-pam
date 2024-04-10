@@ -100,7 +100,7 @@ function GuestsList() {
       setPassword("")
       setWrongPassword("")
     } else {
-      setWrongPassword("Wrong passcode!")
+      setWrongPassword("Wrong password!")
     }
 
 
