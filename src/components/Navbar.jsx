@@ -17,14 +17,14 @@ const Navbar = () => {
                     <h1 className='text-[1.5rem] '> kev+pam</h1>
                 </a>
                 <ul className="hidden md:flex  rounded gap-8 text-sm sm:text-lg md:text-xl lg:text-2xl font-medium text-[#EBE7E4]">
-                    <nav onClick={()=> scroll.scrollTo(760)}>
+                    <nav onClick={() => scroll.scrollTo(760)}>
                         <li className='p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
                             <span className='w-full  cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
                                 kailan at saan?
                             </span>
                         </li>
                     </nav>
-                    <nav onClick={()=> scroll.scrollTo(1550)}>
+                    <nav onClick={() => scroll.scrollTo(1550)}>
                         <li className=' p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
                             <span className='w-full cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
                                 entourage
@@ -38,7 +38,7 @@ const Navbar = () => {
                             </span>
                         </li>
                     </nav>
-                    <nav onClick={()=> scroll.scrollTo(3100)}>
+                    <nav onClick={() => scroll.scrollTo(3100)}>
                         <li className='p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
                             <span className='w-full cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
                                 RSVP here
@@ -75,12 +75,12 @@ const Navbar = () => {
                 <div className='flex flex-col justify-center gap-32 items-center  h-screen '>
 
                     <ul className='text-3xl flex flex-col  gap-8 '>
-                        <nav onClick={()=> scroll.scrollTo(250)} >
+                        <nav onClick={() => scroll.scrollTo(250)} >
                             <li onClick={handleNav} className=' cursor-pointer '>
                                 kailan at saan?
                             </li>
                         </nav>
-                        <nav onClick={()=> scroll.scrollTo(1000)} >
+                        <nav onClick={() => scroll.scrollTo(1000)} >
                             <li onClick={handleNav} className=' cursor-pointer '>
                                 entourage
                             </li>
@@ -90,9 +90,9 @@ const Navbar = () => {
                                 outfit check!
                             </li>
                         </nav>
-                        <nav onClick={()=> scroll.scrollTo(3200)}>
+                        <nav onClick={() => scroll.scrollTo(3200)}>
                             <li onClick={handleNav} className=' cursor-pointer  '>
-                                rsvp
+                                RSVP here
                             </li>
                         </nav>
 
