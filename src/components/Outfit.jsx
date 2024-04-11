@@ -1,6 +1,9 @@
 import React from 'react'
 import outfitG from '../assets/outfitG.png'
 import outfitB from '../assets/outfitB.png'
+import seeyou from '../assets/seeyou.png'
+import seeyouthere from '../assets/seeyouthere.png'
+
 const Outfit = () => {
     return (
         <>
@@ -18,6 +21,15 @@ const Outfit = () => {
 
                 <div className=' sm:ml-32 sm:w-[60%] flex justify-center items-center'>
                     <img src={outfitB} className="w-auto h-40 sm:h-80" />
+                </div>
+            </div>
+
+            <div className='mt-20 sm:mt-36'>
+                <div className='sm:mt-20 flex justify-center items-center '>
+                    <img src={seeyouthere} className=" h-16 sm:h-28 mb-7 sm:mb-12" />
+                </div>
+                <div>
+                    <img src={seeyou} className="w-full" />
                 </div>
             </div>
 
