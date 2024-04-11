@@ -12,23 +12,6 @@ const Navbar = () => {
         setNav(!nav);
     };
 
-    const scrollToTop = () => {
-        scroll.scrollToTop();
-      };
-    
-      const scrollToBottom = () => {
-        scroll.scrollToBottom(1000);
-      };
-    
-      const scrollToEntourage = (px) => {
-        scroll.scrollTo(px); // Scrolling to 100px from the top of the page.
-      };
-      const scrollToKailan = (px) => {
-        scroll.scrollTo(px); // Scrolling to 100px from the top of the page.
-      };
-    
-
-
     return (
         <>
             <div className={`z-20 bg-[#000] tracking-widest text-[1.4rem]  fixed flex justify-between px-8 sm:px-24  items-center top-0 w-screen h-28 text-white`}>
@@ -36,14 +19,14 @@ const Navbar = () => {
                     <h1 className='text-[1.5rem] '> kev+pam</h1>
                 </a>
                 <ul className="hidden md:flex  rounded gap-8 text-sm sm:text-lg md:text-xl lg:text-2xl font-medium text-[#EBE7E4]">
-                    <nav onClick={()=>scrollToKailan(760)}>
+                    <nav onClick={()=> scroll.scrollTo(760)}>
                         <li className='p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
                             <span className='w-full  cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
                                 kailan at saan?
                             </span>
                         </li>
                     </nav>
-                    <nav onClick={()=>scrollToEntourage(1550)}>
+                    <nav onClick={()=> scroll.scrollTo(1550)}>
                         <li className=' p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
                             <span className='w-full cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
                                 entourage
@@ -94,12 +77,12 @@ const Navbar = () => {
                 <div className='flex flex-col justify-center gap-32 items-center  h-screen '>
 
                     <ul className='text-3xl flex flex-col  gap-8 '>
-                        <nav onClick={()=>scrollToKailan(250)} >
+                        <nav onClick={()=> scroll.scrollTo(250)} >
                             <li onClick={handleNav} className=' cursor-pointer '>
                                 kailan at saan?
                             </li>
                         </nav>
-                        <nav onClick={()=>scrollToEntourage(1000)} >
+                        <nav onClick={()=> scroll.scrollTo(1000)} >
                             <li onClick={handleNav} className=' cursor-pointer '>
                                 entourage
                             </li>
