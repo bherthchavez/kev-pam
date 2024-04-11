@@ -144,10 +144,10 @@ function Rsvp() {
           </div>
 
           <div className='text-[#727171] flex flex-col justify-center items-center gap-2  text-center text-[25px] sm:text-[35px] leading-7 sm:leading-[43px] '>
-            <img src={hello} alt='Logo' className='w-16 sm:w-28 mr-36 sm:mb-5 -rotate-12' />
+            <img src={hello} alt='Logo' className='w-20 sm:w-28 mr-36 sm:mb-5 -rotate-12' />
 
             <div className="font-semibold text-[#979D25] capitalize mb-10">
-              <p>{foundInvited.f_name} {foundInvited.l_name}</p>
+              <p className="text-4xl">{foundInvited.f_name} {foundInvited.l_name}</p>
               <p className="text-xl font-normal text-[#EBE7E4]">{foundInvited.remarks}</p>
             </div>
 
