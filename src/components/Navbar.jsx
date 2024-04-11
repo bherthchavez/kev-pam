@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
-import { Link } from 'react-scroll';
+import {Link,  animateScroll as scroll } from 'react-scroll';
+
 
 const Navbar = () => {
 
