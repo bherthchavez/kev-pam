@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import Head from './Head'
 import Venue from './Venue'
 import Entourage from './Entourage'
+import RSVP from './RSVP'
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
      <Head />
      <Venue />
      <Entourage />
+     <RSVP />
      <Analytics />
     </>
   )

@@ -38,13 +38,13 @@ const Navbar = () => {
                             </span>
                         </li>
                     </Link>
-                    <Link to='kulay' smooth={true} duration={500}>
+                    <nav onClick={()=> scroll.scrollTo(3100)}>
                         <li className='p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
                             <span className='w-full cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
-                                rsvp
+                                RSVP here
                             </span>
                         </li>
-                    </Link>
+                    </nav>
 
                 </ul>
 
@@ -90,11 +90,11 @@ const Navbar = () => {
                                 outfit check!
                             </li>
                         </Link>
-                        <Link to='pamunuan' smooth={true} duration={500}>
+                        <nav onClick={()=> scroll.scrollTo(3200)}>
                             <li onClick={handleNav} className=' cursor-pointer  '>
                                 rsvp
                             </li>
-                        </Link>
+                        </nav>
 
 
                     </ul>

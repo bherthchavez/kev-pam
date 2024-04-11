@@ -170,22 +170,8 @@ const Venue = () => {
                         <img src={entourage2} className='' />
                         <img src={entourage3} className='' />
                     </div>
-
-                   
-
-
-
-
-
                 </div>
             </main>
-
-
-            <div className={'p-4 lg:text-base flex justify-center text-slate-700'}>
-                <a href='https://julbertpruel.netlify.app/' className='text-xs'>
-                    ⓒ {new Date().getFullYear()} Julbert Pruel
-                </a>
-            </div>
         </>
     )
 }
