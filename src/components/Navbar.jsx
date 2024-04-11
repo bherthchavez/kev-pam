@@ -75,12 +75,12 @@ const Navbar = () => {
                 <div className='flex flex-col justify-center gap-32 items-center  h-screen '>
 
                     <ul className='text-3xl flex flex-col  gap-8 '>
-                        <nav onClick={() => scroll.scrollTo(250)} >
+                        <nav onClick={() => scroll.scrollTo(280)} >
                             <li onClick={handleNav} className=' cursor-pointer '>
                                 kailan at saan?
                             </li>
                         </nav>
-                        <nav onClick={() => scroll.scrollTo(1000)} >
+                        <nav onClick={() => scroll.scrollTo(1070)} >
                             <li onClick={handleNav} className=' cursor-pointer '>
                                 entourage
                             </li>
@@ -90,7 +90,7 @@ const Navbar = () => {
                                 outfit check!
                             </li>
                         </nav>
-                        <nav onClick={() => scroll.scrollTo(3200)}>
+                        <nav onClick={() => scroll.scrollTo(3320)}>
                             <li onClick={handleNav} className=' cursor-pointer  '>
                                 RSVP here
                             </li>
