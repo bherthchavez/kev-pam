@@ -12,7 +12,7 @@ function Modal({ isOpen, onClose, children, notAttending }) {
         </div>
      
         <div
-          className="inline-block bg-slate-600 rounded-lg text-center overflow-hidden shadow-xl transform transition-all sm:my-8 align-middle  w-10/12 sm:max-w-xl"
+          className="inline-block bg-slate-600  text-center overflow-hidden shadow-xl transform transition-all sm:my-8 align-middle  w-10/12 sm:max-w-xl"
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-headline"

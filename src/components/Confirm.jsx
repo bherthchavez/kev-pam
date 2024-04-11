@@ -97,11 +97,11 @@ function Rsvp() {
 
       <Modal isOpen={isModalOpen} onClose={handleModalClose} notAttending={foundInvited.status}>
         <div className="bg-[#EBE7E4] p-4 ">
-          <div className="flex justify-between sm:justify-center items-center text-center gap-5 my-5">
+          <div className="  items-center text-center my-5">
             <h2 className="text-xl font-bold  text-black">
               {foundInvited.status === 'attending'
                 ? `thank you sa pag-confirm!`
-                : ` aww, thank you sa pag-confirm. ingat!`
+                : `aww, thank you sa pag-confirm. ingat!`
               }
 
             </h2>
