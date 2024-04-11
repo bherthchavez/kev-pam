@@ -85,7 +85,7 @@ const Navbar = () => {
                                 entourage
                             </li>
                         </nav>
-                        <nav onClick={() => scroll.scrollTo(4900)}>
+                        <nav onClick={() => scroll.scrollTo(4890)}>
                             <li onClick={handleNav} className=' cursor-pointer  '>
                                 outfit check!
                             </li>
