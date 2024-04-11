@@ -47,7 +47,7 @@ const Navbar = () => {
                         </li>
                     </nav>
                     <nav onClick={scrollToEntourage}>
-                        <li onClick={scrollTo} className=' p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
+                        <li className=' p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
                             <span className='w-full cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
                                 entourage
                             </span>
