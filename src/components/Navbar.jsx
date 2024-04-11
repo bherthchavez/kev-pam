@@ -23,8 +23,14 @@ const Navbar = () => {
       const scrollToEntourage = () => {
         scroll.scrollTo(1000); // Scrolling to 100px from the top of the page.
       };
+      const scrollToEntourageBS = () => {
+        scroll.scrollTo(1550); // Scrolling to 100px from the top of the page.
+      };
       const scrollToKailan = () => {
         scroll.scrollTo(250); // Scrolling to 100px from the top of the page.
+      };
+      const scrollToKailanBS = () => {
+        scroll.scrollTo(760); // Scrolling to 100px from the top of the page.
       };
     
       const scrollMore = () => {
@@ -39,14 +45,14 @@ const Navbar = () => {
                     <h1 className='text-[1.5rem] '> kev+pam</h1>
                 </a>
                 <ul className="hidden md:flex  rounded gap-8 text-sm sm:text-lg md:text-xl lg:text-2xl font-medium text-[#EBE7E4]">
-                    <nav onClick={scrollToKailan}>
+                    <nav onClick={scrollToKailanBS}>
                         <li className='p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
                             <span className='w-full  cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
                                 kailan at saan?
                             </span>
                         </li>
                     </nav>
-                    <nav onClick={scrollToEntourage}>
+                    <nav onClick={scrollToEntourageBS}>
                         <li className=' p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
                             <span className='w-full cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
                                 entourage
