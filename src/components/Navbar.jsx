@@ -90,7 +90,7 @@ const Navbar = () => {
                                 outfit check!
                             </li>
                         </nav>
-                        <nav onClick={() => scroll.scrollTo(3320)}>
+                        <nav onClick={() => scroll.scrollTo(3250)}>
                             <li onClick={handleNav} className=' cursor-pointer  '>
                                 RSVP here
                             </li>
