@@ -9,7 +9,7 @@ import ReactCurvedText from 'react-curved-text';
 const Venue = () => {
     return (
         <>
-            <div name="entourage" className='w-full mb-20'>
+            <main name="entourage"  className='w-full mb-20'>
                 <div className='flex flex-col sm:flex-row gap-4 justify-between items-center '>
                     
                     <div className='hidden sm:flex flex-col w-full sm:w-[45%]  '>
@@ -18,10 +18,10 @@ const Venue = () => {
                         <img src={entourage3} className='' />
                     </div>
 
-                    <div className='flex px-5 sm:px-0 pt-5 sm:pt-0 flex-col w-full sm:w-[55%] justify-center items-center text-[#EBE7E4] text-center text-sm sm:text-xl'>
+                    <div  className='flex px-5 sm:px-0 pt-5 sm:pt-0 flex-col w-full sm:w-[55%] justify-center items-center text-[#EBE7E4] text-center text-sm sm:text-xl'>
 
-                        <div className=''>
-                            <img src={entourage} className='w-80 sm:w-[30rem]' />
+                        <div className='mt-5'>
+                            <img src={entourage} className='w-96 sm:w-[30rem]' />
                         </div>
 
                         <div className='mb-3'>
@@ -178,7 +178,7 @@ const Venue = () => {
 
 
                 </div>
-            </div>
+            </main>
 
 
             <div className={'p-4 lg:text-base flex justify-center text-slate-700'}>
