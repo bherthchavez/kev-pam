@@ -85,12 +85,12 @@ const Navbar = () => {
                                 entourage
                             </li>
                         </nav>
-                        <nav onClick={() => scroll.scrollTo(4670)}>
+                        <nav onClick={() => scroll.scrollTo(4900)}>
                             <li onClick={handleNav} className=' cursor-pointer  '>
                                 outfit check!
                             </li>
                         </nav>
-                        <nav onClick={() => scroll.scrollTo(3200)}>
+                        <nav onClick={() => scroll.scrollTo(3300)}>
                             <li onClick={handleNav} className=' cursor-pointer  '>
                                 RSVP here
                             </li>
