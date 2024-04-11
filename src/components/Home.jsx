@@ -5,6 +5,7 @@ import Head from './Head'
 import Venue from './Venue'
 import Entourage from './Entourage'
 import RSVP from './RSVP'
+import Outfit from './Outfit'
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
      <Venue />
      <Entourage />
      <RSVP />
+     <Outfit />
      <Analytics />
     </>
   )

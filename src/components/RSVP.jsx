@@ -1,5 +1,4 @@
 import React from 'react'
-import saan from '../assets/saan.jpg'
 import rsvp from '../assets/rsvp.png'
 import rsvpIMG from '../assets/rsvpIMG.png'
 import rsvpIMG2 from '../assets/rsvpIMG2.png'
@@ -69,15 +68,6 @@ const RSVP = () => {
                     </div>
 
                 </div>
-            </div>
-
-           
-
-
-            <div className={'p-4 lg:text-base flex justify-center text-slate-700'}>
-                <a href='https://julbertpruel.netlify.app/' className='text-xs'>
-                    ⓒ {new Date().getFullYear()} Julbert Pruel
-                </a>
             </div>
         </>
     )

@@ -31,7 +31,7 @@ const Navbar = () => {
                             </span>
                         </li>
                     </nav>
-                    <nav >
+                    <nav onClick={() => scroll.scrollTo(4120)}>
                         <li className='p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
                             <span className='w-full cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
                                 outfit check!
@@ -85,7 +85,7 @@ const Navbar = () => {
                                 entourage
                             </li>
                         </nav>
-                        <nav >
+                        <nav onClick={() => scroll.scrollTo(5320)}>
                             <li onClick={handleNav} className=' cursor-pointer  '>
                                 outfit check!
                             </li>
