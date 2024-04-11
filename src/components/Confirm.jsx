@@ -138,7 +138,7 @@ function Rsvp() {
 
             <div className='flex flex-col justify-center items-center'>
               <div className="flex flex-col justify-center items-center text-white">
-                <a href='/' className="cursor-pointer  rounded px-2 tracking-widest font-semibold text-sm ">kev+pam</a>
+                <a href='/' className="cursor-pointer  rounded px-2 tracking-widest font-semibold text-lg ">kev+pam</a>
               </div>
             </div>
           </div>
