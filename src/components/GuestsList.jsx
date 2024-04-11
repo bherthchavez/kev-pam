@@ -45,8 +45,6 @@ function GuestsList() {
           return c - d
         })
 
-        // const filteredBySearch = search &&  filterByDate.filter(guest=> guest.f_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1) || guest.l_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1)
-      
         
         setInvited(filterByDate.filter(inv => inv.f_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1) || inv.l_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1)
         setFilteredInvited(filterByDate.filter(inv => inv.f_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1) || inv.l_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1)

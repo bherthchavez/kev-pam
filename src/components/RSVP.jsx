@@ -1,9 +1,62 @@
 import React from 'react'
+import { useEffect, useState } from "react";
+import useApi from "../hooks/useAPI"
+import { useNavigate } from "react-router-dom";
 import rsvp from '../assets/rsvp.png'
 import rsvpIMG from '../assets/rsvpIMG.png'
 import rsvpIMG2 from '../assets/rsvpIMG2.png'
 
 const RSVP = () => {
+
+
+    const navigate = useNavigate()
+    const [details, setDetails] = useState(
+        {
+            firstName: '',
+            lastName: ''
+        }
+    )
+
+    const [listInvited, setListInvited] = useState([])
+    const [noFound, setNoFound] = useState("")
+    // eslint-disable-next-line no-unused-vars
+    const [refetchTrigger, setRefetchTrigger] = useState(false);
+
+    const { getGuestsList } = useApi();
+
+    useEffect(() => {
+        const fetchInvited = async () => {
+            try {
+                const result = await getGuestsList()
+                setListInvited(result)
+                console.log('listInvited', result)
+
+            } catch (error) {
+                console.log('Error fetching data:', error);
+            }
+        }
+        fetchInvited();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [refetchTrigger])
+
+
+    const searchInvited = (event) => {
+        event.preventDefault()
+        console.log('details', details)
+        console.log('listInvited', listInvited)
+        console.log('noFound', noFound)
+
+        if (details.firstName !== "" && details.lastName !== "") {
+
+            const existing = listInvited.find(inv => inv.f_name.toUpperCase() == details.firstName.toUpperCase() && inv.l_name.toUpperCase() == details.lastName.toUpperCase())
+
+            existing
+                ? navigate(`rsvp/${existing.id}`)
+                : setNoFound("Oops! Mali ang pangalan. Please contact Kevin or Pamela.")
+        }
+
+    }
+
     return (
         <>
             <div name="kailan" className=''>
@@ -16,7 +69,7 @@ const RSVP = () => {
                         <h1 className=''> ilagay mo na <b className='font-extrabold '>name</b> mo here! </h1>
                         <p className='mt-1'>at tignan ang <b className='font-extrabold '>outfit</b> cheeeeck!</p>
 
-                        <div className='mt-5 text-left w-64 flex flex-col gap-5'>
+                        <form onSubmit={searchInvited} className='mt-5 text-left w-64 flex flex-col gap-5'>
                             <label
                                 htmlFor="firstname"
                                 className="block overflow-hidden  border border-gray-500 px-4 py-1 pb-3 shadow-sm focus-within:border-slate-400 focus-within:ring-1 focus-within:ring-slate-400"
@@ -28,21 +81,31 @@ const RSVP = () => {
                                     name="firstname"
                                     type="text"
                                     required
-                                    className="mt-1 w-full bg-black text-white tracking-widest  border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 text-lg sm:text-xl" />
+                                    value={details.firstName}
+                                    onChange={(e) => setDetails({ ...details, firstName: e.target.value })}
+                                    className="mt-1 w-full uppercase bg-black text-white tracking-widest  border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 text-lg sm:text-xl" />
                             </label>
                             <label
-                                htmlFor="firstname"
+                                htmlFor="lastname"
                                 className="block overflow-hidden  border border-gray-500 px-4 py-1 pb-3 shadow-sm focus-within:border-slate-400 focus-within:ring-1 focus-within:ring-slate-400"
                             >
                                 <span className="text-base tracking-wider font-medium text-gray-500"> last name </span>
 
                                 <input
-                                    id="firstname"
-                                    name="firstname"
+                                    id="lastname"
+                                    name="lastname"
                                     type="text"
                                     required
-                                    className="mt-1 w-full bg-black text-white tracking-widest  border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 text-lg sm:text-xl" />
+                                    value={details.lastName}
+                                    onChange={e => setDetails({ ...details, lastName: e.target.value })}
+                                    className="mt-1 w-full bg-black uppercase text-white tracking-widest  border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 text-lg sm:text-xl" />
                             </label>
+
+                            {noFound &&
+                                <h1 className="text-orange-400 text-xs mb-2">
+                                    {noFound}
+                                </h1>
+                            }
 
                             <button
                                 className="group tracking-widest relative inline-block text-sm font-medium text-white focus:outline-none focus:ring"
@@ -55,7 +118,7 @@ const RSVP = () => {
                                     TINGNAN
                                 </span>
                             </button>
-                        </div>
+                        </form>
 
                     </div>
 
