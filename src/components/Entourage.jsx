@@ -59,7 +59,7 @@ const Venue = () => {
                             </div>
                             <div>
 
-                                <p className='mt-1 font-light'>Mrs. Divine Chua</p>
+                                <p className='mt-1 font-light'>Mrs. Divinia Chua</p>
                                 <p className='mt-1 font-light'>Mrs. Marie Lalaine Garrido</p>
                                 <p className='mt-1 font-light'>Ms. Elsa Suarez</p>
                                 <p className='mt-1 font-light'>Ms. Justine Angeles</p>

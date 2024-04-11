@@ -5,8 +5,6 @@ import {Link,  animateScroll as scroll } from 'react-scroll';
 
 const Navbar = () => {
 
-   
-
     const [nav, setNav] = useState(false);
     const handleNav = () => {
         setNav(!nav);
