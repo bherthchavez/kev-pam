@@ -80,23 +80,22 @@ const Navbar = () => {
                                 kailan at saan?
                             </li>
                         </nav>
-                        <nav onClick={() => scroll.scrollTo(1070)} >
+                        <nav onClick={() => scroll.scrollTo(1000)} >
                             <li onClick={handleNav} className=' cursor-pointer '>
                                 entourage
                             </li>
                         </nav>
-                        <nav onClick={() => scroll.scrollTo(4890)}>
+
+                        <nav onClick={() => scroll.scrollTo(4600)}>
                             <li onClick={handleNav} className=' cursor-pointer  '>
                                 outfit check!
                             </li>
                         </nav>
-                        <nav onClick={() => scroll.scrollTo(3300)}>
+                        <nav onClick={() => scroll.scrollTo(3200)}>
                             <li onClick={handleNav} className=' cursor-pointer  '>
                                 RSVP here
                             </li>
                         </nav>
-
-
                     </ul>
                 </div>
 
