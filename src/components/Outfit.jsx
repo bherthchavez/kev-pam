@@ -33,7 +33,7 @@ const Outfit = () => {
                 </div>
             </div>
 
-            <div className={'p-4 lg:text-base flex justify-center text-slate-700'}>
+            <div className={'p-4 lg:text-base flex justify-center text-slate-500'}>
                 <a href='https://julbertpruel.netlify.app/' className='text-xs'>
                     ⓒ {new Date().getFullYear()} Julbert Pruel
                 </a>
