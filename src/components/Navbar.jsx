@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useState } from 'react';
-import {Link,  animateScroll as scroll } from 'react-scroll';
+import { animateScroll as scroll } from 'react-scroll';
 
 
 const Navbar = () => {
@@ -31,13 +31,13 @@ const Navbar = () => {
                             </span>
                         </li>
                     </nav>
-                    <Link to='paghahanda' smooth={true} duration={500}>
+                    <nav >
                         <li className='p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
                             <span className='w-full cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
                                 outfit check!
                             </span>
                         </li>
-                    </Link>
+                    </nav>
                     <nav onClick={()=> scroll.scrollTo(3100)}>
                         <li className='p-2 group transition-all duration-300 ease-in-out cursor-pointer'>
                             <span className='w-full cursor-pointer bg-left-bottom bg-gradient-to-r from-[#fef1e2] to-[#fef1e2] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>
@@ -85,11 +85,11 @@ const Navbar = () => {
                                 entourage
                             </li>
                         </nav>
-                        <Link to='paghahanda' smooth={true} duration={500}>
+                        <nav >
                             <li onClick={handleNav} className=' cursor-pointer  '>
                                 outfit check!
                             </li>
-                        </Link>
+                        </nav>
                         <nav onClick={()=> scroll.scrollTo(3200)}>
                             <li onClick={handleNav} className=' cursor-pointer  '>
                                 rsvp

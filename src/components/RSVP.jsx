@@ -14,8 +14,8 @@ const RSVP = () => {
                         <div className=''>
                             <img src={rsvp} className='w-80 sm:w-[30rem]' />
                         </div>
-                        <h1 className=''> ilagay mo na <strog className='font-extrabold italic'>name</strog> mo here! </h1>
-                        <p className='mt-1'>at tignan ang <strog className='font-extrabold italic'>outfit</strog> cheeeeck!</p>
+                        <h1 className=''> ilagay mo na <b className='font-extrabold italic'>name</b> mo here! </h1>
+                        <p className='mt-1'>at tignan ang <b className='font-extrabold italic'>outfit</b> cheeeeck!</p>
 
                         <div className='mt-5 text-left w-64 flex flex-col gap-5'>
                             <label
