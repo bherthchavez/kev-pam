@@ -7,6 +7,7 @@ import Guest from "./Guest";
 
 function GuestsList() {
 
+
   const [invited, setInvited] = useState([])
   const [filteredInvited, setFilteredInvited] = useState([])
   const [filterByStatus, setFilterByStatus] = useState(false)
@@ -18,6 +19,8 @@ function GuestsList() {
   // eslint-disable-next-line no-unused-vars
   const [refetchTrigger, setRefetchTrigger] = useState(false);
   const [search, setsearch] = useState("");
+  const [filteredBy, setFilteredBy] = useState("");
+  const [filtered, setFiltered] = useState("");
 
   const [details, setDetails] = useState(
     {
@@ -38,14 +41,14 @@ function GuestsList() {
       try {
         const result = await getGuestsList()
         const filterdByStatus = result.sort((a, b) => a.status > b.status ? 1 : -1)
-        
+
         const filterByDate = filterdByStatus.sort((a, b) => {
           let c = new Date(a.updatedDate)
           let d = new Date(b.updatedDate)
           return c - d
         })
 
-        
+
         setInvited(filterByDate.filter(inv => inv.f_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1) || inv.l_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1)
         setFilteredInvited(filterByDate.filter(inv => inv.f_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1) || inv.l_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1)
 
@@ -153,12 +156,38 @@ function GuestsList() {
   };
 
 
+  const runFilteredBy = (e)=>{
+    setFiltered(e.target.value)
+
+    setsearch("");
+    setFilterByStatus(true)
+
+    setFilteredInvited(invited)
+
+    
+
+    if(filteredBy === 'status'){
+    setFilteredInvited(invited.filter(inv => inv.status === e.target.value))
+
+    }else if(filteredBy === 'side'){
+      setFilteredInvited(invited.filter(inv => inv.side === e.target.value))
+
+    }else if (filteredBy === 'gender'){
+      setFilteredInvited(invited.filter(inv => inv.gender === e.target.value))
+
+    }
+
+
+
+  }
+
 
   const filteredByStatus = (status) => {
     setsearch("");
     setFilterByStatus(true)
 
     setFilteredInvited(invited)
+
 
     if (status === 'attending' || status === 'not attending' || status === 'pending') {
 
@@ -172,8 +201,10 @@ function GuestsList() {
 
   }
 
-  const refreshGuestsList = ()=>{
+  const refreshGuestsList = () => {
     setsearch("");
+    setFilteredBy("")
+    setFilterByStatus("")
     setRefetchTrigger(prev => !prev)
   }
 
@@ -195,23 +226,56 @@ function GuestsList() {
             <>
               <div className='text-[#727171] flex flex-col sm:flex-row justify-center items-center  text-center text-[15px] sm:text-[20px]  sm:leading-[43px] '>
                 <div className="flex justify-between items-center">
-                  <p className="text-slate-300 text-3xl">GUESTLIST</p>
+                  <p className="text-slate-300 text-3xl">GUESTLIST <i className="text-amber-200">{filteredInvited.length}</i> </p>
                 </div>
 
               </div>
 
               <div className=" py-2 flex flex-col sm:flex-row gap-3 justify-between items-center ">
-                <div className="flex gap-5 sm:gap-8 items-center font-bold text-gray-500">
+                <div className="flex gap-5 sm:gap-8 items-center font-bold text-gray-400">
                   <p onClick={refreshGuestsList}
                     className="cursor-pointer hover:text-gray-400 p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-blue-700 shadow-sm">
                     <FiRefreshCw /></p>
-                  <p onClick={() => filteredByStatus('attending')} className="text-xs cursor-pointer">A  <span className="text-green-700  text-sm">{invited.filter(inv => inv.status === 'attending').length}</span></p>
-                  <p onClick={() => filteredByStatus('not attending')} className="text-xs cursor-pointer">N <span className="text-red-700  text-sm">{invited.filter(inv => inv.status === 'not attending').length}</span></p>
-                  <p onClick={() => filteredByStatus('pending')} className="text-xs cursor-pointer">P <span className="text-orange-700  text-sm">{invited.filter(inv => inv.status === 'pending').length}</span></p>
-                  <p onClick={() => setRefetchTrigger(prev => !prev)} className="text-xs cursor-pointer">T <span className="text-blue-700  text-xs">{invited.length}</span></p>
-                  <p onClick={() => filteredByStatus('pamela')} className="text-xs cursor-pointer">SP <span className="text-indigo-700  text-sm">{invited.filter(inv => inv.side === 'pamela').length}</span></p>
-                  <p onClick={() => filteredByStatus('kevin')} className="text-xs cursor-pointer">SK <span className="text-purple-700  text-sm">{invited.filter(inv => inv.side === 'kevin').length}</span></p>
-
+                 
+                  <div className="relative h-10">
+                    <select
+                      value={filteredBy}
+                      onChange={(e)=> setFilteredBy(e.target.value)}
+                      className="peer h-full w-full   border border-gray-500 border-t-transparent bg-slate-800 px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-500 placeholder-shown:border-t-gray-500 empty:!bg-gray-900  focus:border-gray-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-50">
+                      <option  value=""></option>
+                      <option  value="status">Status</option>
+                      <option  value="side">Side</option>
+                      <option  value="gender">Gender</option>
+                    </select>
+                    <label
+                      className="before:content[' '] after:content[' '] tracking-wider pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[12px] font-normal leading-tight text-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5  before:border-t before:border-l before:border-gray-500 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:border-t after:border-r after:border-gray-500 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-400  peer-focus:before:border-gray-500  peer-focus:after:border-gray-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-500">
+                      Filter By
+                    </label>
+                  </div>
+                
+                  <div className="relative h-10 ">
+                    <select
+                      value={filtered}
+                      onChange={runFilteredBy}
+                      className="peer h-full w-full   border border-gray-500  bg-slate-800 px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-500 placeholder-shown:border-t-gray-500 empty:!bg-gray-900  focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-gray-50">
+                     
+                      <option  value=""></option>
+                      {filteredBy === ''
+                      ? null
+                      :filteredBy === 'status'
+                      ? <><option  value="attending">Attending</option>
+                      <option  value="not attending">Not Attending</option> 
+                      <option  value="pending">Pending</option>  </>
+                      : filteredBy === 'side'
+                      ? <><option  value="pamela">Pamela</option>
+                      <option  value="kevin">Kevin</option>  </>
+                      :<><option  value="male">Male</option>
+                      <option  value="female">Female</option>  </>
+                      
+                      }
+                      
+                    </select>
+                  </div>
                 </div>
                 {editInv
                   ?
@@ -237,43 +301,43 @@ function GuestsList() {
                   </div>
                   :
                   <div className="flex justify-center items-center gap-6">
-                   {!addInv &&
-                   
-                    <div className="pr-0 sm:pr-4">
-                      <label htmlFor="table-search" className="sr-only">
-                        Search
-                      </label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none shrink-0">
-                          <svg
-                            className="w-4 h-4  text-gray-500"
-                            xmlns="http://www.w3.org/2000/svg"
-                            // className="h-4 w-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                            />
-                          </svg>
-                        </div>
-                        <input
-                          type="text"
-                          id="table-search"
-                          className="w-full pl-10 p-2 block py-2 tracking-widest  px-3 text-xs  bg-slate-800 text-gray-100 border  border-gray-800  dark:focus:border-gray-700 outline-none focus:border-gray-300  focus:shadow-sm "
-                          placeholder="Search..."
-                          value={search}
-                          onChange={(e) => handleSearch(e.target.value)}
+                    {!addInv &&
 
-                        />
+                      <div className="pr-0 sm:pr-4">
+                        <label htmlFor="table-search" className="sr-only">
+                          Search
+                        </label>
+                        <div className="relative">
+                          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none shrink-0">
+                            <svg
+                              className="w-4 h-4  text-gray-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              // className="h-4 w-4"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                              />
+                            </svg>
+                          </div>
+                          <input
+                            type="text"
+                            id="table-search"
+                            className="w-full pl-10 p-2 block py-2 tracking-widest  px-3 text-xs  bg-slate-800 text-gray-100 border  border-gray-800  dark:focus:border-gray-700 outline-none focus:border-gray-300  focus:shadow-sm "
+                            placeholder="Search..."
+                            value={search}
+                            onChange={(e) => handleSearch(e.target.value)}
+
+                          />
+                        </div>
                       </div>
-                    </div>
-                   }
-                   
+                    }
+
                     <button
                       onClick={() => setAddInv(prev => !prev)}
                       className={!addInv ? `py-2 px-7 text-sm  tracking-widest bg-blue-950 hover:bg-blue-900 text-gray-300 shadow-md` : `py-2 px-7 tracking-widest text-sm bg-transparent border-2 border-red-900  text-red-600 hover:bg-red-950 hover:text-gray-300 hover:shadow-md`}>
@@ -446,7 +510,7 @@ function GuestsList() {
 
                         <tbody className="divide-y  divide-slate-800 text-gray-300">
 
-                       
+
 
                           {tableContent}
 
