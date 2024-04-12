@@ -114,7 +114,7 @@ function Rsvp() {
               <h1 className="text-xl font-bold mb-5">
                 outfit check!
               </h1>
-              <p className="uppercase mb-5">wear your  BEST <b className="font-extrabold">ALL BLACK SEMI-FORMAL</b>  <br /> for an outdoor venue.</p>
+              <p className="uppercase mb-5">wear your  <i className="italic">BEST</i>  <b className="font-extrabold">ALL BLACK SEMI-FORMAL</b>  <br /> for an outdoor venue.</p>
               <p className="text-sm mb-5">(STRICTLY no other colors please)</p>
               {
                 foundInvited.gender === 'male'
@@ -123,7 +123,7 @@ function Rsvp() {
               }
 
               <p className="text-xl font-bold">gifts</p>
-              <p className="text-sm mb-5">your love, laughter, and company on <br /> our wedding day is the greatest gift of all.</p>
+              <p className="text-sm mb-5"><i className="italic">your love, laughter, and company</i> on <br /> our wedding day is the greatest gift of all.</p>
               <p className="text-sm">but if you desire to give nonetheless, <br /> a <b className="font-bold">monetary gift</b> is one we suggest.</p>
 
             </div>
