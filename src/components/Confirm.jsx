@@ -168,10 +168,6 @@ function Rsvp() {
                 } />
             </div>
 
-            <div className="flex justify-center text-base items-center gap-5">
-
-
-            </div>
           </div>
 
 

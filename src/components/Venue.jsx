@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import saan from '../assets/saan.jpg'
 import kailan from '../assets/kailan.png'
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 import ReactCurvedText from 'react-curved-text';
 
 const Venue = () => {
+
+    useEffect(function () {
+        Aos.init({ duration: 1000 });
+    }, []);
+
     return (
         <>
-            <div name="kailan" className='w-full'>
-                <div className='flex flex-col sm:flex-row gap-4 justify-between items-center '>
-                    <div className='flex  flex-col w-full sm:w-[35%] justify-center items-center text-[#EBE7E4] text-center text-base sm:text-2xl'>
+            <div  name="kailan" className='w-full'>
+                <div  className='flex flex-col sm:flex-row gap-4 justify-between items-center '>
+                    <div data-aos="fade-up" data-aos-delay="2000" data-aos-offset="100" data-aos-easing="ease-in-sine" data-aos-duration="1000"  className='flex  flex-col w-full sm:w-[35%] justify-center items-center text-[#EBE7E4] text-center text-base sm:text-2xl'>
                       
                         {/* <div className='flex sm:hidden'>
                             <ReactCurvedText width='321'
@@ -27,7 +33,7 @@ const Venue = () => {
                                 ellipseProps={null}
                                 svgProps={{ "style": { "transform": "rotate(0deg)" } }} />
                         </div> */}
-                        <div className=''>
+                        <div  className=''>
                             {/* <ReactCurvedText width='321'
                                 height='140'
                                 cx='163'
@@ -57,7 +63,7 @@ const Venue = () => {
                             </a>
                     </div>
 
-                    <div className='w-full sm:w-[65%] '>
+                    <div data-aos="fade-up" data-aos-duration="3000"  className='w-full sm:w-[65%] '>
                         <img src={saan} className='object-contain' />
                     </div>
                 </div>

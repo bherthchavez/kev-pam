@@ -5,9 +5,14 @@ import { useNavigate } from "react-router-dom";
 import rsvp from '../assets/rsvp.png'
 import rsvpIMG from '../assets/rsvpIMG.png'
 import rsvpIMG2 from '../assets/rsvpIMG2.png'
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const RSVP = () => {
 
+    useEffect(function () {
+        Aos.init({ duration: 1000 });
+    }, []);
 
     const navigate = useNavigate()
     const [details, setDetails] = useState(
@@ -29,7 +34,6 @@ const RSVP = () => {
             try {
                 const result = await getGuestsList()
                 setListInvited(result)
-                console.log('listInvited', result)
 
             } catch (error) {
                 console.log('Error fetching data:', error);
@@ -42,9 +46,6 @@ const RSVP = () => {
 
     const searchInvited = (event) => {
         event.preventDefault()
-        console.log('details', details)
-        console.log('listInvited', listInvited)
-        console.log('noFound', noFound)
 
         if (details.firstName !== "" && details.lastName !== "") {
 
@@ -59,10 +60,10 @@ const RSVP = () => {
 
     return (
         <>
-            <div name="kailan" className=''>
+            <section  name="rsvp" className=''>
                 <div className='flex flex-col sm:flex-col gap-6 items-center  justify-center mx-auto '>
 
-                    <div className='flex mt-10 flex-col justify-center items-center text-[#EBE7E4] text-center text-base sm:text-xl'>
+                    <div data-aos="fade-up" data-aos-duration="3000" className='flex mt-10 flex-col justify-center items-center text-[#EBE7E4] text-center text-base sm:text-xl'>
                         <div className=''>
                             <img src={rsvp} className='w-80 sm:w-[30rem]' />
                         </div>
@@ -122,16 +123,16 @@ const RSVP = () => {
 
                     </div>
 
-                    <div className='mt-20 hidden sm:flex'>
+                    <div data-aos="fade-up" data-aos-duration="3000" className='mt-20 hidden sm:flex'>
                         <img src={rsvpIMG} className=" " />
                     </div>
 
-                    <div className='mt-20 flex sm:hidden'>
+                    <div data-aos="fade-up" data-aos-duration="3000" className='mt-20 flex sm:hidden'>
                         <img src={rsvpIMG2} className=" " />
                     </div>
 
                 </div>
-            </div>
+            </section>
         </>
     )
 }

@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import saan from '../assets/saan.jpg'
 import entourage from '../assets/entourage.png'
 import entourage1 from '../assets/entourage1.jpg'
 import entourage2 from '../assets/entourage2.jpg'
 import entourage3 from '../assets/entourage3.jpg'
 import ReactCurvedText from 'react-curved-text';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Venue = () => {
+
+    useEffect(function () {
+        Aos.init({ duration: 1000 });
+    }, []);
     return (
         <>
             <section name="entourage"  className='w-full mb-20'>
-                <div className='flex flex-col sm:flex-row gap-4 justify-between items-center '>
+                <div  className='flex flex-col sm:flex-row gap-4 justify-between items-center '>
                     
                     <div className='hidden sm:flex flex-col w-full sm:w-[45%]  '>
                         <img src={entourage1} className='' />
@@ -20,17 +26,17 @@ const Venue = () => {
 
                     <div  className='flex px-5 sm:px-0 pt-5 sm:pt-0 flex-col w-full sm:w-[55%] justify-center items-center text-[#EBE7E4] text-center text-sm sm:text-xl'>
 
-                        <div className='mt-5'>
+                        <div data-aos="fade-up" data-aos-duration="3000"    className='mt-5'>
                             <img src={entourage} className='w-96 sm:w-[30rem]' />
                         </div>
 
-                        <div className='mb-3'>
+                        <div data-aos="fade-up" data-aos-duration="3000" className='mb-3'>
                             <h1 className='font-semibold mb-5'> wedding officiant <br></br>
                                 <p className='mt-1 font-light'>Pastor John David Auxtero</p>
                             </h1>
                         </div>
 
-                        <div className='flex gap-5 sm:gap-5 mb-3'>
+                        <div data-aos="fade-up" data-aos-duration="3000" className='flex gap-5 sm:gap-5 mb-3'>
                             <div>
                                 <h1 className='font-semibold mb-5'> parents of the groom <br></br>
                                     <p className='mt-1 font-light'>Mr. Ricardo Topino</p>
@@ -45,11 +51,11 @@ const Venue = () => {
                             </div>
                         </div>
 
-                        <div className='mb-5'>
+                        <div data-aos="fade-up" data-aos-duration="3000" className='mb-5'>
                             <h1 className='font-semibold'>principal sponsors </h1>
                         </div>
 
-                        <div className='flex gap-5 sm:gap-20 mb-5'>
+                        <div data-aos="fade-up" data-aos-duration="3000" className='flex gap-5 sm:gap-20 mb-5'>
                             <div>
                                 <p className='mt-1 font-light'>Mr. Joselito Santos</p>
                                 <p className='mt-1 font-light'>Mr. Yonobev Alibusa</p>
@@ -68,7 +74,7 @@ const Venue = () => {
                             </div>
                         </div>
 
-                        <div className='flex gap-5 sm:gap-20 mb-5'>
+                        <div data-aos="fade-up" data-aos-duration="3000" className='flex gap-5 sm:gap-20 mb-5'>
                             <div>
                                 <h1 className='font-semibold '> best men <br></br>
                                     <p className='mt-1 font-light'>Keith Jeremy Topino</p>
@@ -83,7 +89,7 @@ const Venue = () => {
                             </div>
                         </div>
 
-                        <div className='flex gap-5 sm:gap-20 mb-5'>
+                        <div data-aos="fade-up" data-aos-duration="3000" className='flex gap-5 sm:gap-20 mb-5'>
                             <div>
                                 <h1 className='font-semibold '> groomsmen <br></br>
                                     <p className='mt-1 font-light'>Gleo Dominise</p>
@@ -106,11 +112,11 @@ const Venue = () => {
                             </div>
                         </div>
 
-                        <div className='mb-5'>
+                        <div data-aos="fade-up" data-aos-duration="3000" className='mb-5'>
                             <h1 className='font-semibold'>secondary sponsors </h1>
                         </div>
 
-                        <div className='flex gap-5 sm:gap-10 mb-5'>
+                        <div data-aos="fade-up" data-aos-duration="3000" className='flex gap-5 sm:gap-10 mb-5'>
                             <div className='font-light  text-right'>
                                 <p className='mt-1 '>Paula Jodine Pruel</p>
                                 <p className='mt-1 '>Trisha Anne De Guia</p>
@@ -128,7 +134,7 @@ const Venue = () => {
                             </div>
                         </div>
 
-                        <div className='flex gap-5 sm:gap-20 mb-5'>
+                        <div data-aos="fade-up" data-aos-duration="3000" className='flex gap-5 sm:gap-20 mb-5'>
                             <div>
                                 <h1 className='font-semibold'> bible bearer <br></br>
                                     <p className='mt-1 font-light'>Aundray Jairus Santos</p>
@@ -141,7 +147,7 @@ const Venue = () => {
                             </div>
                         </div>
                         
-                        <div className='flex gap-5 sm:gap-20 mb-5'>
+                        <div data-aos="fade-up" data-aos-duration="3000" className='flex gap-5 sm:gap-20 mb-5'>
                             <div>
                                 <h1 className='font-semibold '> coin bearer <br></br>
                                     <p className='mt-1 font-light'>Dwayne Godfrey Alibusa</p>
@@ -154,7 +160,7 @@ const Venue = () => {
                             </div>
                         </div>
 
-                        <div className='mb-20 sm:mb-0'>
+                        <div data-aos="fade-up" data-aos-duration="3000" className='mb-20 sm:mb-0'>
                             <h1 className='font-semibold'> flower ladies <br></br>
                                 <p className='mt-1 font-light'>Tala Maria Delos Reyes</p>
                                 <p className='mt-1 font-light'>Julien Mackenzie Tolentino</p>
@@ -165,10 +171,10 @@ const Venue = () => {
 
                     </div>
 
-                    <div className='flex flex-col sm:hidden w-full sm:w-[45%]  '>
-                        <img src={entourage1} className='' />
-                        <img src={entourage2} className='' />
-                        <img src={entourage3} className='' />
+                    <div  className='flex flex-col sm:hidden w-full sm:w-[45%]  '>
+                        <img data-aos="fade-up" data-aos-duration="3000" src={entourage1} className='' />
+                        <img data-aos="fade-up" data-aos-duration="3000" src={entourage2} className='' />
+                        <img data-aos="fade-up" data-aos-duration="3000" src={entourage3} className='' />
                     </div>
                 </div>
             </section>
