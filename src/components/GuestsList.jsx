@@ -62,18 +62,26 @@ function GuestsList() {
   }, [refetchTrigger])
 
   const saveInv = () => {
-    if (details.f_name && details.l_name && details.status && details.gender) {
-      setsearch("")
-      firebase
-        .firestore().collection('guestsList')
-        .add(details)
-        .then(() => {
-          console.log('New Invited SAVED!')
-          setRefetchTrigger(prev => !prev)
-          cancelUpdateAdd()
-        }).catch((error) => {
-          console.log(error.message)
-        });
+
+    const existing = invited.filter((guest) => guest.f_name === details.f_name && guest.l_name === details.l_name)
+
+
+    if (existing) {
+      alert("Guests " + details.f_name.toUpperCase() + ' ' + details.l_name.toUpperCase() + ' already exist.')
+    } else {
+      if (details.f_name && details.l_name && details.status && details.gender) {
+        setsearch("")
+        firebase
+          .firestore().collection('guestsList')
+          .add(details)
+          .then(() => {
+            console.log('New Invited SAVED!')
+            setRefetchTrigger(prev => !prev)
+            cancelUpdateAdd()
+          }).catch((error) => {
+            console.log(error.message)
+          });
+      }
     }
   }
   const updateInv = () => {
@@ -156,7 +164,7 @@ function GuestsList() {
   };
 
 
-  const runFilteredBy = (e)=>{
+  const runFilteredBy = (e) => {
     setFiltered(e.target.value)
 
     setsearch("");
@@ -164,15 +172,15 @@ function GuestsList() {
 
     setFilteredInvited(invited)
 
-    
 
-    if(filteredBy === 'status'){
-    setFilteredInvited(invited.filter(inv => inv.status === e.target.value))
 
-    }else if(filteredBy === 'side'){
+    if (filteredBy === 'status') {
+      setFilteredInvited(invited.filter(inv => inv.status === e.target.value))
+
+    } else if (filteredBy === 'side') {
       setFilteredInvited(invited.filter(inv => inv.side === e.target.value))
 
-    }else if (filteredBy === 'gender'){
+    } else if (filteredBy === 'gender') {
       setFilteredInvited(invited.filter(inv => inv.gender === e.target.value))
 
     }
@@ -182,24 +190,6 @@ function GuestsList() {
   }
 
 
-  const filteredByStatus = (status) => {
-    setsearch("");
-    setFilterByStatus(true)
-
-    setFilteredInvited(invited)
-
-
-    if (status === 'attending' || status === 'not attending' || status === 'pending') {
-
-      setFilteredInvited(invited.filter(inv => inv.status === status))
-    } else {
-
-      setFilteredInvited(invited.filter(inv => inv.side === status))
-    }
-
-
-
-  }
 
   const refreshGuestsList = () => {
     setsearch("");
@@ -236,44 +226,44 @@ function GuestsList() {
                   <p onClick={refreshGuestsList}
                     className="cursor-pointer hover:text-gray-400 p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-blue-700 shadow-sm">
                     <FiRefreshCw /></p>
-                 
+
                   <div className="relative h-10">
                     <select
                       value={filteredBy}
-                      onChange={(e)=> setFilteredBy(e.target.value)}
+                      onChange={(e) => setFilteredBy(e.target.value)}
                       className="peer h-full w-full   border border-gray-500 border-t-transparent bg-slate-800 px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-500 placeholder-shown:border-t-gray-500 empty:!bg-gray-900  focus:border-gray-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-50">
-                      <option  value=""></option>
-                      <option  value="status">Status</option>
-                      <option  value="side">Side</option>
-                      <option  value="gender">Gender</option>
+                      <option value=""></option>
+                      <option value="status">Status</option>
+                      <option value="side">Side</option>
+                      <option value="gender">Gender</option>
                     </select>
                     <label
                       className="before:content[' '] after:content[' '] tracking-wider pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[12px] font-normal leading-tight text-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5  before:border-t before:border-l before:border-gray-500 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:border-t after:border-r after:border-gray-500 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-400  peer-focus:before:border-gray-500  peer-focus:after:border-gray-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-500">
                       Filter By
                     </label>
                   </div>
-                
+
                   <div className="relative h-10 ">
                     <select
                       value={filtered}
                       onChange={runFilteredBy}
                       className="peer h-full w-full   border border-gray-500  bg-slate-800 px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-500 placeholder-shown:border-t-gray-500 empty:!bg-gray-900  focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-gray-50">
-                     
-                      <option  value=""></option>
+
+                      <option value=""></option>
                       {filteredBy === ''
-                      ? null
-                      :filteredBy === 'status'
-                      ? <><option  value="attending">Attending</option>
-                      <option  value="not attending">Not Attending</option> 
-                      <option  value="pending">Pending</option>  </>
-                      : filteredBy === 'side'
-                      ? <><option  value="pamela">Pamela</option>
-                      <option  value="kevin">Kevin</option>  </>
-                      :<><option  value="male">Male</option>
-                      <option  value="female">Female</option>  </>
-                      
+                        ? null
+                        : filteredBy === 'status'
+                          ? <><option value="attending">Attending</option>
+                            <option value="not attending">Not Attending</option>
+                            <option value="pending">Pending</option>  </>
+                          : filteredBy === 'side'
+                            ? <><option value="pamela">Pamela</option>
+                              <option value="kevin">Kevin</option>  </>
+                            : <><option value="male">Male</option>
+                              <option value="female">Female</option>  </>
+
                       }
-                      
+
                     </select>
                   </div>
                 </div>
