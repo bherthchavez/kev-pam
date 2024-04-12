@@ -62,13 +62,8 @@ function GuestsList() {
   }, [refetchTrigger])
 
   const saveInv = () => {
-
-    const existing = invited.filter((guest) => guest.f_name === details.f_name && guest.l_name === details.l_name)
-
-
-    if (existing) {
-      alert("Guests " + details.f_name.toUpperCase() + ' ' + details.l_name.toUpperCase() + ' already exist.')
-    } else {
+  
+   
       if (details.f_name && details.l_name && details.status && details.gender) {
         setsearch("")
         firebase
@@ -82,7 +77,7 @@ function GuestsList() {
             console.log(error.message)
           });
       }
-    }
+    
   }
   const updateInv = () => {
     setsearch("")
