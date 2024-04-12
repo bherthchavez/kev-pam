@@ -64,7 +64,7 @@ function GuestsList() {
   const saveInv = () => {
   
    
-      if (details.f_name && details.l_name && details.status && details.gender) {
+      if (details.f_name && details.l_name && details.status && details.gender && details.side) {
         setsearch("")
         firebase
           .firestore().collection('guestsList')
@@ -81,7 +81,7 @@ function GuestsList() {
   }
   const updateInv = () => {
     setsearch("")
-    if (details.f_name && details.l_name && details.status && details.gender) {
+    if (details.f_name && details.l_name && details.status && details.gender && details.side) {
 
       firebase
         .firestore().collection('guestsList')
@@ -417,6 +417,7 @@ function GuestsList() {
                         <select
                           name="Gender"
                           id="Gender"
+                          required
                           className="mt-1.5 w-full uppercase tracking-widest bg-transparent"
                           onChange={(e) => setDetails({ ...details, gender: e.target.value.toLowerCase() })}
                           value={details.gender}
