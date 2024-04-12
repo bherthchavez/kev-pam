@@ -211,7 +211,7 @@ function GuestsList() {
             <>
               <div className='text-[#727171] flex flex-col sm:flex-row justify-center items-center  text-center text-[15px] sm:text-[20px]  sm:leading-[43px] '>
                 <div className="flex justify-between items-center">
-                  <p className="text-slate-300 text-3xl">GUESTLIST <i className="text-amber-200">{filteredInvited.length}</i> </p>
+                  <p className="text-slate-300 text-3xl">GUESTLIST <small className="text-amber-200 text-3xl">{filteredInvited.length}</small> </p>
                 </div>
 
               </div>
