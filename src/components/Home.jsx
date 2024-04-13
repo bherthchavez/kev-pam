@@ -11,14 +11,16 @@ import Footer from './Footer'
 const Home = () => {
   return (
     <>
-     <Navbar />
-     <Head />
-     <Venue />
-     <Entourage />
-     <RSVP />
-     <Outfit />
-     <Footer />
-     <Analytics />
+      <main className={`font-glacial`}>
+        <Navbar />
+        <Head />
+        <Venue />
+        <Entourage />
+        <RSVP />
+        <Outfit />
+        <Footer />
+        <Analytics />
+      </main>
     </>
   )
 }

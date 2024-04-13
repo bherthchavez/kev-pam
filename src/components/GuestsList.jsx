@@ -26,10 +26,11 @@ function GuestsList() {
     {
       f_name: '',
       l_name: '',
+      plus: '',
       status: '',
       gender: '',
       remarks: '',
-      side: ''
+      side: '',
     }
   )
 
@@ -462,6 +463,24 @@ function GuestsList() {
                           <option className="text-slate-800" value=""></option>
                           <option className="text-slate-800" value="pamela" >Pamela</option>
                           <option className="text-slate-800" value="kevin" >Kevin</option>
+                        </select>
+                      </label>
+                      <label
+                        htmlFor="Plus"
+                        className="block overflow-hidden w-full border border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
+                      >
+                        <span className="text-sm tracking-widest text-gray-500"> Plus 1 </span>
+
+                        <select
+                          name="Plus"
+                          id="Plus"
+                          className="mt-1.5 w-full uppercase tracking-widest bg-transparent"
+                          onChange={(e) => setDetails({ ...details, plus: e.target.value.toLowerCase() })}
+                          value={details.plus}
+                        >
+                          {/* <option className="text-slate-800" value=""></option> */}
+                          <option className="text-slate-800" value="no" >No</option>
+                          <option className="text-slate-800" value="yes" >Yes</option>
                         </select>
                       </label>
                     </div>
