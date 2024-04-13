@@ -1,4 +1,5 @@
 import React from 'react'
+import { Tooltip } from "@material-tailwind/react";
 
 const Guest = ({ guests, search, invEdit }) => {
 
@@ -12,13 +13,19 @@ const Guest = ({ guests, search, invEdit }) => {
         <td className="whitespace-nowrap px-4 py-2 font-medium capitalize">
           {guests.f_name}  {guests.l_name}
           {
-            guests.plus === 'yes' 
-            &&<span className="whitespace-nowrap ml-1 rounded-full bg-transparent hover:border-slate-200 hover:text-slate-200  border-[1px] border-slate-500  px-1 py-0.5 text-xs text-slate-500">
-            +1
-          </span>
+            guests.plus === 'yes'
+            &&
+            <Tooltip content={`Material Tailwind`} placement="right">
+              <span className="whitespace-nowrap ml-1 rounded-full bg-transparent hover:border-slate-200 hover:text-slate-200  border-[1px] border-slate-500  px-1 py-0.5 text-xs text-slate-500">
+
+                +1
+              </span>
+            </Tooltip>
+
+
 
           }
-          
+
         </td>
         <td className="whitespace-nowrap px-4 py-2 capitalize">
           <span className={guests.status.toLowerCase() == 'attending'
