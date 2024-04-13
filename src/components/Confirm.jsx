@@ -339,7 +339,7 @@ function Rsvp() {
             </div>
           </div>
         </div>
-        <div className="container w-screen flex flex-col p-8 gap-5 sm:gap-10 mx-auto  md:p-8 ">
+        <div className="container  flex flex-col p-8 gap-5 sm:gap-10 mx-auto  md:p-8 ">
 
 
           <div className='text-[#727171] flex flex-col justify-center items-center gap-2  text-center text-[25px] sm:text-[35px] leading-7 sm:leading-[43px] '>

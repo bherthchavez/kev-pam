@@ -14,16 +14,24 @@ const Guest = ({ guests, search, invEdit }) => {
           {guests.f_name}  {guests.l_name}
           {
             guests.plus === 'yes'
-            &&
-            <Tooltip content={`Material Tailwind`} placement="right">
-              <span className="whitespace-nowrap ml-1 rounded-full bg-transparent hover:border-slate-200 hover:text-slate-200  border-[1px] border-slate-500  px-1 py-0.5 text-xs text-slate-500">
-
+            && guests.plus1_status === 'attending' 
+            &&<span className="whitespace-nowrap ml-1 rounded-full bg-transparent hover:border-slate-200 hover:text-slate-200  border-[1px] border-slate-500  px-1 py-0.5 text-xs text-slate-500">
                 +1
               </span>
-            </Tooltip>
-
-
-
+          }
+          {
+            guests.plus === 'yes'
+            && guests.plus1_status === 'not attending' 
+            &&<span className="whitespace-nowrap ml-1 rounded-full bg-transparent hover:border-slate-200 hover:text-slate-200  border-[1px] border-slate-500  px-1 py-0.5 text-xs text-slate-500">
+                +0
+              </span>
+          }
+          {
+            guests.plus === 'yes'
+            && guests.status === 'pending' 
+            &&<span className="whitespace-nowrap ml-1 rounded-full bg-transparent hover:border-slate-200 hover:text-slate-200  border-[1px] border-slate-500  px-1 py-0.5 text-xs text-slate-500">
+                +1
+              </span>
           }
 
         </td>

@@ -51,9 +51,11 @@ const RSVP = () => {
 
             const existing = listInvited.find(inv => inv.f_name.toUpperCase() == details.firstName.toUpperCase() && inv.l_name.toUpperCase() == details.lastName.toUpperCase())
 
-            existing
-                ? navigate(`rsvp/${existing.id}`)
-                : setNoFound("Oops! Mali ang pangalan. Please contact Kevin or Pamela.")
+            if(existing && !existing.fromPlus1ID){
+                navigate(`rsvp/${existing.id}`)
+            }else{
+                setNoFound("Oops! Mali ang pangalan. Please contact Kevin or Pamela.")
+            }
         }
 
     }

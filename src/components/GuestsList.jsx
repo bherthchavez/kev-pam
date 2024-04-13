@@ -64,22 +64,22 @@ function GuestsList() {
   }, [refetchTrigger])
 
   const saveInv = () => {
-  
-   
-      if (details.f_name && details.l_name && details.status && details.gender && details.side) {
-        setsearch("")
-        firebase
-          .firestore().collection('guestsList')
-          .add(details)
-          .then(() => {
-            console.log('New Invited SAVED!')
-            setRefetchTrigger(prev => !prev)
-            cancelUpdateAdd()
-          }).catch((error) => {
-            console.log(error.message)
-          });
-      }
-    
+
+
+    if (details.f_name && details.l_name && details.status && details.gender && details.side) {
+      setsearch("")
+      firebase
+        .firestore().collection('guestsList')
+        .add(details)
+        .then(() => {
+          console.log('New Invited SAVED!')
+          setRefetchTrigger(prev => !prev)
+          cancelUpdateAdd()
+        }).catch((error) => {
+          console.log(error.message)
+        });
+    }
+
   }
   const updateInv = () => {
     setsearch("")
@@ -484,6 +484,20 @@ function GuestsList() {
                           <option className="text-slate-800" value="yes" >Yes</option>
                         </select>
                       </label>
+                      {
+                        details.plus === 'yes'
+                        && details.plus1_status === 'attending'
+                        && <div className="text-left w-full ml-14 flex gap-5">
+                          <div>
+                            <p className="text-gray-500 text-sm">Full Name</p>
+                            <span className="capitalize">{details.plus1_f_name} {details.plus1_l_name}</span>
+                          </div>
+                          <div>
+                            <p className="text-gray-500 text-sm">Status</p>
+                            <span className="capitalize text-green-600">{details.plus1_status} </span>
+                          </div>
+                        </div>
+                      }
                     </div>
                     :
                     <>
