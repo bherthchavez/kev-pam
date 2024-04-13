@@ -19,9 +19,9 @@ const Venue = () => {
                 <div  className='flex flex-col sm:flex-row gap-4 justify-between items-center '>
                     
                     <div className='hidden sm:flex flex-col w-full sm:w-[45%]  '>
-                        <img src={entourage1} className='' />
-                        <img src={entourage2} className='' />
-                        <img src={entourage3} className='' />
+                        <img data-aos="fade-up" data-aos-duration="3000" src={entourage1} className='' />
+                        <img data-aos="fade-up" data-aos-duration="3000" src={entourage2} className='' />
+                        <img data-aos="fade-up" data-aos-duration="3000" src={entourage3} className='' />
                     </div>
 
                     <div  className='flex px-5 sm:px-0 pt-5 sm:pt-0 flex-col w-full sm:w-[55%] justify-center items-center text-[#EBE7E4] text-center text-sm sm:text-xl'>

@@ -6,6 +6,7 @@ import Venue from './Venue'
 import Entourage from './Entourage'
 import RSVP from './RSVP'
 import Outfit from './Outfit'
+import Footer from './Footer'
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
      <Entourage />
      <RSVP />
      <Outfit />
+     <Footer />
      <Analytics />
     </>
   )
