@@ -347,7 +347,7 @@ function Rsvp() {
 
             <div className="font-semibold text-[#979D25] capitalize mb-10">
               <p className="text-4xl">{foundInvited.f_name} {foundInvited.l_name}</p>
-              <p className="text-xl font-normal text-[#EBE7E4]">{foundInvited.remarks}</p>
+              <p className="text-lg font-normal text-[#EBE7E4]">{foundInvited.remarks}</p>
             </div>
 
             <img src={puntaKa} alt='Logo' className='w-60 sm:w-72' />
@@ -370,7 +370,7 @@ function Rsvp() {
               &&
               <>
                 <p className="mt-10 text-lg font-normal text-[#EBE7E4]">ang isang kasama mo ay makakapunta din ba?</p>
-                <div className="flex gap-5">
+                <div className="flex gap-5 mt-5">
                   <button
                     className="group tracking-widest relative inline-block text-sm font-medium text-white focus:outline-none focus:ring"
                     onClick={() => confirmPlus1('attending')}
@@ -404,7 +404,7 @@ function Rsvp() {
             {plusYesG === 'attending' && plus1 &&
               <>
                 <p className="mt-10 text-lg font-normal text-[#EBE7E4]">paki lagay po ang kanyang details sa ibaba?</p>
-                <div className="flex flex-col sm:flex-row gap-5 text-left text-white text-sm">
+                <div className="mt-5 flex flex-col sm:flex-row gap-5 text-left text-white text-sm">
                   <label
                     htmlFor="Pangalan"
                     className="block overflow-hidden w-full border text-base border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
@@ -460,7 +460,7 @@ function Rsvp() {
 
                 </div>
                 <button
-                  className="mt-10 group tracking-widest relative inline-block text-sm font-medium text-white focus:outline-none focus:ring"
+                  className="mt-5 group tracking-widest relative inline-block text-sm font-medium text-white focus:outline-none focus:ring"
                   onClick={() => confirmPlus1("attending")}
                 >
                   <span className="absolute inset-0 border border-slate-600 group-active:border-slate-500"></span>
@@ -483,7 +483,7 @@ function Rsvp() {
 
 
       </section>
-        <div className={'p-4 mt-10 text-xs lg:text-sm flex justify-center text-[#5f5f5f]'}>
+        <div className={'p-4 mt-10 text-xs lg:text-sm flex justify-center text-slate-700'}>
           <a href='https://julbertpruel.netlify.app/' className=' '>
             ⓒ {new Date().getFullYear()} Julbert Pruel
           </a>
