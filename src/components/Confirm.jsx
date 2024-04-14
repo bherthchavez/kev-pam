@@ -346,12 +346,12 @@ function Rsvp() {
             <img src={hello} alt='Logo' className='w-20 sm:w-28 mr-36 sm:mb-5 -rotate-12' />
 
             <div className="font-semibold text-[#979D25] capitalize mb-10">
-              <p className="text-4xl">{foundInvited.f_name} {foundInvited.l_name}</p>
-              <p className="text-lg font-normal text-[#8d8b89]">{foundInvited.remarks}</p>
+              <p className="text-4xl sm:text-5xl">{foundInvited.f_name} {foundInvited.l_name}</p>
+              <p className="text-lg sm:text-xl font-normal text-[#8d8b89]">{foundInvited.remarks}</p>
             </div>
 
-            <img src={puntaKa} alt='Logo' className='w-60 sm:w-72' />
-            <p className="text-xl font-normal text-[#EBE7E4]">i-click ang picture</p>
+            <img src={puntaKa} alt='Logo' className='w-56 sm:w-72 mt-5' />
+            <p className="text-lg sm:text-xl font-normal text-[#EBE7E4]">i-click ang picture</p>
 
             <div className="flex gap-5 sm:gap-10 mt-2">
               <img src={oo} alt='Logo' onClick={() => attending('attending')}
@@ -369,7 +369,7 @@ function Rsvp() {
             {plusYes
               &&
               <>
-                <p className="mt-10 text-lg font-normal text-[#EBE7E4]">ang isang kasama mo ay makakapunta din ba?</p>
+                <p className="mt-10 text-base sm:text-lg font-normal text-[#EBE7E4]">ang isang kasama mo ay makakapunta din ba?</p>
                 <div className="flex gap-5 mt-5">
                   <button
                     className="group tracking-widest relative inline-block text-sm font-medium text-white focus:outline-none focus:ring"
@@ -403,7 +403,7 @@ function Rsvp() {
 
             {plusYesG === 'attending' && plus1 &&
               <>
-                <p className="mt-10 text-lg font-normal text-[#EBE7E4]">paki lagay po ang kanyang details sa ibaba?</p>
+                <p className="mt-10 text-base sm:text-lg font-normal text-[#EBE7E4]">paki lagay po ang kanyang details sa ibaba?</p>
                 <div className="mt-5 flex flex-col sm:flex-row gap-5 text-left text-white text-sm">
                   <label
                     htmlFor="Pangalan"
