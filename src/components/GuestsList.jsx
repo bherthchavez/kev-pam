@@ -358,7 +358,7 @@ function GuestsList() {
                         && details.plus1_status === 'attending'
                         && <>
                           <div className="text-left w-full">
-                            <p className="text-gray-500 text-base">Plus1 Details</p>
+                            <p className="text-gray-500 text-base">Plus 1 Details</p>
                           </div>
                           <div className="w-full flex gap-5 text-left ml-5">
                             <div>
@@ -376,7 +376,7 @@ function GuestsList() {
                       details.mainGuest && details.mainGuest !==''
                         && <>
                           <div className="text-left w-full">
-                            <p className="text-gray-500 text-base">Main Guest</p>
+                            <p className="text-gray-500 text-base">Main Guest Details</p>
                           </div>
                           <div className="w-full flex gap-5 text-left ml-5">
                             <div>
