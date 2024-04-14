@@ -481,13 +481,13 @@ function Rsvp() {
 
         </div>
 
-        <div className={'p-4 text-xs lg:text-sm flex justify-center text-[#929292]'}>
+
+      </section>
+        <div className={'p-4 mt-10 text-xs lg:text-sm flex justify-center text-[#5f5f5f]'}>
           <a href='https://julbertpruel.netlify.app/' className=' '>
             ⓒ {new Date().getFullYear()} Julbert Pruel
           </a>
         </div>
-
-      </section>
     </>
   )
 }
