@@ -347,7 +347,7 @@ function Rsvp() {
 
             <div className="font-semibold text-[#979D25] capitalize mb-10">
               <p className="text-4xl">{foundInvited.f_name} {foundInvited.l_name}</p>
-              <p className="text-lg font-normal text-[#EBE7E4]">{foundInvited.remarks}</p>
+              <p className="text-lg font-normal text-[#8d8b89]">{foundInvited.remarks}</p>
             </div>
 
             <img src={puntaKa} alt='Logo' className='w-60 sm:w-72' />
