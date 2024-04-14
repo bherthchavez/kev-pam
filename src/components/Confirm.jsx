@@ -330,7 +330,7 @@ function Rsvp() {
 
         </div>
       </Modal>
-      <section className=" h-screen flex flex-col justify-around">
+      <section className=" flex flex-col ">
         <div className='flex flex-col justify-center items-center'>
 
           <div className='flex flex-col justify-center items-center'>
