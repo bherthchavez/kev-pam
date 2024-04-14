@@ -44,6 +44,7 @@ function Rsvp() {
       remarks: '',
       side: '',
       fromPlus1ID: '',
+      mainGuest: '',
     }
   )
 
@@ -71,7 +72,8 @@ function Rsvp() {
               status: existing.plus1_status,
               remarks: 'Guest',
               side: existing.side,
-              fromPlus1ID: existing.id
+              fromPlus1ID: existing.id,
+              mainGuest: existing.f_name +" "+ existing.l_name,
             })
           }
 
@@ -330,7 +332,7 @@ function Rsvp() {
 
         </div>
       </Modal>
-      <section className=" flex flex-col ">
+      <section className=" flex flex-col font-glacial">
         <div className='flex flex-col justify-center items-center'>
 
           <div className='flex flex-col justify-center items-center'>
@@ -369,7 +371,7 @@ function Rsvp() {
             {plusYes
               &&
               <>
-                <p className="mt-10 text-base sm:text-lg font-normal text-[#EBE7E4]">ang isang kasama mo ay makakapunta din ba?</p>
+                <p className="mt-10 text-base sm:text-lg font-normal text-[#EBE7E4]">ang isang kasama mo ba ay makakapunta?</p>
                 <div className="flex gap-5 mt-5">
                   <button
                     className="group tracking-widest relative inline-block text-sm font-medium text-white focus:outline-none focus:ring"
@@ -381,7 +383,7 @@ function Rsvp() {
                         ? `block  border border-[#979D25] bg-[#979D25] px-6 sm:px-12 py-3 transition-transform active:border-slate-500 active:bg-slate-500 group-hover:-translate-x-1 group-hover:-translate-y-1`
                         : `block  border border-slate-600 bg-slate-900 px-6 sm:px-12 py-3 transition-transform active:border-slate-500 active:bg-slate-500 group-hover:-translate-x-1 group-hover:-translate-y-1`}
                     >
-                      G sya!
+                      oo naman!
                     </span>
                   </button>
                   <button
@@ -403,7 +405,7 @@ function Rsvp() {
 
             {plusYesG === 'attending' && plus1 &&
               <>
-                <p className="mt-10 text-base sm:text-lg font-normal text-[#EBE7E4]">paki lagay po ang kanyang details sa ibaba?</p>
+                <p className="mt-10 text-base sm:text-lg font-normal text-[#EBE7E4]">ilagay ang full name niya sa ibaba:</p>
                 <div className="mt-5 flex flex-col sm:flex-row gap-5 text-left text-white text-sm">
                   <label
                     htmlFor="Pangalan"

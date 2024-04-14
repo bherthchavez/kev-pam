@@ -99,6 +99,8 @@ function GuestsList() {
     }
   }
 
+  console.log(details)
+
   const checkPass = (event) => {
     event.preventDefault()
     if (password.toUpperCase() === import.meta.env.VITE_KEY) {
@@ -198,7 +200,7 @@ function GuestsList() {
   const tableContent = filteredInvited.map((inv) => <Guest key={inv.id} guests={inv} search={search} invEdit={invEdit} />)
 
   return (
-    <section className="flex flex-col justify-between bg-[#000] h-screen  font-sans">
+    <section className="flex flex-col justify-between h-screen font-glacial">
 
       <div className="container flex flex-col px-2 sm:px-8 pt-8 sm:pt-8 gap-2 sm:gap-5 mx-auto  max-w-[1200px]">
         <div className='flex flex-col justify-center items-center'>
@@ -351,8 +353,44 @@ function GuestsList() {
                     ?
                     <div className="min-w-full p-5 sm:p-10 flex flex-col text-white justify-center items-center gap-3">
 
-
-
+                    {
+                        details.plus === 'yes'
+                        && details.plus1_status === 'attending'
+                        && <>
+                          <div className="text-left w-full">
+                            <p className="text-gray-500 text-base">Plus1 Details</p>
+                          </div>
+                          <div className="w-full flex gap-5 text-left ml-5">
+                            <div>
+                              <p className="text-gray-500 text-xs">Full Name</p>
+                              <span className="capitalize text-gray-400">{details.plus1_f_name} {details.plus1_l_name}</span>
+                            </div>
+                            <div>
+                              <p className="text-gray-500 text-xs">Status</p>
+                              <span className="capitalize text-green-700">{details.plus1_status} </span>
+                            </div>
+                          </div>
+                        </>
+                      }
+                    {
+                      details.mainGuest && details.mainGuest !==''
+                        && <>
+                          <div className="text-left w-full">
+                            <p className="text-gray-500 text-base">Main Guest</p>
+                          </div>
+                          <div className="w-full flex gap-5 text-left ml-5">
+                            <div>
+                              <p className="text-gray-500 text-xs">Full Name</p>
+                              <span className="capitalize text-gray-400">{details.mainGuest}</span>
+                            </div>
+                            <div>
+                              <p className="text-gray-500 text-xs">Status</p>
+                              <span className="capitalize text-green-700">{details.status} </span>
+                            </div>
+                          </div>
+                        </>
+                      }
+                     
 
                       <label
                         htmlFor="Pangalan"
@@ -371,7 +409,7 @@ function GuestsList() {
 
                         />
                       </label>
-
+                     
                       <label
                         htmlFor="Apelyido"
                         className="block overflow-hidden w-full border border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
@@ -484,20 +522,7 @@ function GuestsList() {
                           <option className="text-slate-800" value="yes" >Yes</option>
                         </select>
                       </label>
-                      {
-                        details.plus === 'yes'
-                        && details.plus1_status === 'attending'
-                        && <div className="text-left w-full ml-14 flex gap-5">
-                          <div>
-                            <p className="text-gray-500 text-sm">Full Name</p>
-                            <span className="capitalize">{details.plus1_f_name} {details.plus1_l_name}</span>
-                          </div>
-                          <div>
-                            <p className="text-gray-500 text-sm">Status</p>
-                            <span className="capitalize text-green-600">{details.plus1_status} </span>
-                          </div>
-                        </div>
-                      }
+
                     </div>
                     :
                     <>
