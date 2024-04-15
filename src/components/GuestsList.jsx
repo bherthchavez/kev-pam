@@ -192,6 +192,7 @@ function GuestsList() {
 
   const refreshGuestsList = () => {
     setsearch("");
+    setFiltered("")
     setFilteredBy("")
     setFilterByStatus("")
     setRefetchTrigger(prev => !prev)
