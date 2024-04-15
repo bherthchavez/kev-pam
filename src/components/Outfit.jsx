@@ -11,7 +11,7 @@ const Outfit = () => {
         <>
             <section  className='sm:mt-20 sm:h-screen'>
 
-                <div data-aos="fade-up" data-aos-duration="3000" name='outfit' className="container flex flex-col pt-20  text-center sm:text-left sm:gap-5 mx-auto px-10 sm:px-0  max-w-[1330px] text-white">
+                <div   name='outfit' className="container flex flex-col pt-20  text-center sm:text-left sm:gap-5 mx-auto px-10 sm:px-0  max-w-[1330px] text-white">
                     <div className='flex flex-col sm:flex-row'>
                         <div className='w-full sm:w-[40%] pt-20 '>
                             <h1 className='font-semibold text-4xl sm:text-5xl text-[#979D25] mb-5'> outfit check!</h1>

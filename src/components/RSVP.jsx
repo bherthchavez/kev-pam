@@ -62,10 +62,10 @@ const RSVP = () => {
 
     return (
         <>
-            <section  name="rsvp" className=''>
+            <section   name="rsvp" className=''>
                 <div className='flex flex-col sm:flex-col gap-6 items-center  justify-center mx-auto '>
 
-                    <div data-aos="fade-up" data-aos-duration="3000" className='flex mt-10 flex-col justify-center items-center text-[#EBE7E4] text-center text-base sm:text-xl'>
+                    <div  className='flex mt-10 flex-col justify-center items-center text-[#EBE7E4] text-center text-base sm:text-xl'>
                         <div className=''>
                             <img src={rsvp} className='w-80 sm:w-[30rem]' />
                         </div>
@@ -125,11 +125,11 @@ const RSVP = () => {
 
                     </div>
 
-                    <div data-aos="fade-up" data-aos-duration="3000" className='mt-20 hidden sm:flex'>
+                    <div  className='mt-20 hidden sm:flex'>
                         <img src={rsvpIMG} className=" " />
                     </div>
 
-                    <div data-aos="fade-up" data-aos-duration="3000" className='mt-20 flex sm:hidden'>
+                    <div  className='mt-20 flex sm:hidden'>
                         <img src={rsvpIMG2} className=" " />
                     </div>
 

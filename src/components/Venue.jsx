@@ -63,7 +63,7 @@ const Venue = () => {
                             </a>
                     </div>
 
-                    <div data-aos="fade-up" data-aos-duration="3000"  className='w-full sm:w-[65%] '>
+                    <div  className='w-full sm:w-[65%] '>
                         <img src={saan} className='object-contain' />
                     </div>
                 </div>
