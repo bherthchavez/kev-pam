@@ -104,7 +104,7 @@ function Rsvp() {
         .doc(params.id)
         .update({
           status: ans,
-          updatedDate: new Date().toLocaleString('en-US', options),
+          updatedDate: new Date().toLocaleDateString('en-US', options),
           plus1_status: ans,
           plus1_f_name: '',
           plus1_l_name: '',
@@ -137,7 +137,7 @@ function Rsvp() {
 
 
   const confirmPlus1 = (ans) => {
-    setDetails({ ...details, status: ans, updatedDate: new Date().toLocaleString('en-US', options) })
+    setDetails({ ...details, status: ans, updatedDate: new Date().toLocaleDateString('en-US', options) })
     setPlusYesG(ans)
 
     if (ans === 'attending') {
@@ -154,7 +154,7 @@ function Rsvp() {
         .update({
           status: 'attending',
           plus1_status: ans,
-          updatedDate: new Date().toLocaleString('en-US', options),
+          updatedDate: new Date().toLocaleDateString('en-US', options),
           plus1_f_name: '',
           plus1_l_name: '',
           plus1_gender: '',
@@ -186,7 +186,7 @@ function Rsvp() {
       .doc(params.id)
       .update({
         status: ans,
-        updatedDate: new Date().toLocaleString('en-US', options),
+        updatedDate: new Date().toLocaleDateString('en-US', options),
         plus1_f_name: details.f_name,
         plus1_l_name: details.l_name,
         plus1_gender: details.gender,
@@ -234,7 +234,7 @@ function Rsvp() {
           .doc(existing.id)
           .update({
             status: ans,
-            updatedDate: new Date().toLocaleString('en-US', options),
+            updatedDate: new Date().toLocaleDateString('en-US', options),
             f_name: details.f_name,
             l_name: details.l_name,
             gender: details.gender
