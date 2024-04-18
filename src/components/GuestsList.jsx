@@ -25,6 +25,7 @@ function GuestsList() {
     {
       f_name: '',
       l_name: '',
+      // updatedDate:'',
       plus: '',
       status: '',
       gender: '',
@@ -423,6 +424,23 @@ function GuestsList() {
 
                         />
                       </label>
+                      {/* <label
+                        htmlFor="Confirm "
+                        className="block overflow-hidden w-full border border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
+                      >
+                        <span className="text-sm tracking-widest font-light text-gray-500"> Confirm Date </span>
+
+                        <input
+                          id="confirm "
+                          name="confirm "
+                          type="text"
+                          required
+                          className="mt-1 w-full tracking-widest bg-transparent border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 "
+                          onChange={(e) => setDetails({ ...details, updatedDate: e.target.value })}
+                          value={details.updatedDate}
+                          
+                        />
+                      </label> */}
 
                       <label
                         htmlFor="Status"

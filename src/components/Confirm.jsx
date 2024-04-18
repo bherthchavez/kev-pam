@@ -14,7 +14,6 @@ function Rsvp() {
   const params = useParams()
   const navigate = useNavigate()
 
-  const now = new Date();
   const options = {
     year: "numeric",
     month: "short",
@@ -25,7 +24,6 @@ function Rsvp() {
     hour12: true // for 12-hour format
   };
 
-  const formattedDate = now.toLocaleString('en-US', options);
   const [plus1, setPlus1] = useState(false)
   const [plusYes, setPlusYes] = useState(false)
   const [plusYesG, setPlusYesG] = useState('')
@@ -106,7 +104,7 @@ function Rsvp() {
         .doc(params.id)
         .update({
           status: ans,
-          updatedDate: formattedDate,
+          updatedDate: new Date().toLocaleString('en-US', options),
           plus1_status: ans,
           plus1_f_name: '',
           plus1_l_name: '',
@@ -139,7 +137,7 @@ function Rsvp() {
 
 
   const confirmPlus1 = (ans) => {
-    setDetails({ ...details, status: ans, updatedDate: formattedDate })
+    setDetails({ ...details, status: ans, updatedDate: new Date().toLocaleString('en-US', options) })
     setPlusYesG(ans)
 
     if (ans === 'attending') {
@@ -156,7 +154,7 @@ function Rsvp() {
         .update({
           status: 'attending',
           plus1_status: ans,
-          updatedDate: formattedDate,
+          updatedDate: new Date().toLocaleString('en-US', options),
           plus1_f_name: '',
           plus1_l_name: '',
           plus1_gender: '',
@@ -188,7 +186,7 @@ function Rsvp() {
       .doc(params.id)
       .update({
         status: ans,
-        updatedDate: formattedDate,
+        updatedDate: new Date().toLocaleString('en-US', options),
         plus1_f_name: details.f_name,
         plus1_l_name: details.l_name,
         plus1_gender: details.gender,
@@ -236,7 +234,7 @@ function Rsvp() {
           .doc(existing.id)
           .update({
             status: ans,
-            updatedDate: formattedDate,
+            updatedDate: new Date().toLocaleString('en-US', options),
             f_name: details.f_name,
             l_name: details.l_name,
             gender: details.gender
