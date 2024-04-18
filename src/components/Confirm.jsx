@@ -16,12 +16,13 @@ function Rsvp() {
 
   const now = new Date();
   const options = {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true // for 12-hour format
   };
 
   const formattedDate = now.toLocaleString('en-US', options);
@@ -73,7 +74,7 @@ function Rsvp() {
               remarks: 'Guest',
               side: existing.side,
               fromPlus1ID: existing.id,
-              mainGuest: existing.f_name +" "+ existing.l_name,
+              mainGuest: existing.f_name + " " + existing.l_name,
             })
           }
 
@@ -317,10 +318,10 @@ function Rsvp() {
                 </>
               }
               {
-                !plus1 && foundInvited.gender === 'male' &&  <img src={outfitB} className="mb-5 " />
+                !plus1 && foundInvited.gender === 'male' && <img src={outfitB} className="mb-5 " />
               }
               {
-                !plus1 && foundInvited.gender === 'female' &&  <img src={outfitG} className="mb-5 " />
+                !plus1 && foundInvited.gender === 'female' && <img src={outfitG} className="mb-5 " />
               }
 
               <p className="text-xl font-bold">gifts</p>
@@ -485,11 +486,11 @@ function Rsvp() {
 
 
       </section>
-        <div className={'p-4 mt-10 text-xs lg:text-sm flex justify-center text-slate-700'}>
-          <a href='https://julbertpruel.netlify.app/' className=' '>
-            ⓒ {new Date().getFullYear()} Julbert Pruel
-          </a>
-        </div>
+      <div className={'p-4 mt-10 text-xs lg:text-sm flex justify-center text-slate-700'}>
+        <a href='https://julbertpruel.netlify.app/' className=' '>
+          ⓒ {new Date().getFullYear()} Julbert Pruel
+        </a>
+      </div>
     </>
   )
 }
