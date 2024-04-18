@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import useApi from "../hooks/useAPI";
-import pg from '../assets/pj.png'
 import firebase from "../firebase";
 import { FiRefreshCw } from "react-icons/fi";
 import Guest from "./Guest";
@@ -11,7 +10,6 @@ function GuestsList() {
 
   const [invited, setInvited] = useState([])
   const [filteredInvited, setFilteredInvited] = useState([])
-  const [filterByStatus, setFilterByStatus] = useState(false)
   const [addInv, setAddInv] = useState(false)
   const [editInv, setEditInv] = useState(false)
   const [pass, setPass] = useState(false)
@@ -35,6 +33,7 @@ function GuestsList() {
     }
   )
 
+
   const { getGuestsList } = useApi();
 
 
@@ -43,16 +42,16 @@ function GuestsList() {
       try {
         const result = await getGuestsList()
         const filterdByStatus = result.sort((a, b) => a.status > b.status ? 1 : -1)
-
+        
         const filterByDate = filterdByStatus.sort((a, b) => {
           let c = new Date(a.updatedDate)
           let d = new Date(b.updatedDate)
-          return c - d
+          return  d - c
         })
 
 
-        setInvited(filterByDate.filter(inv => inv.f_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1) || inv.l_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1)
-        setFilteredInvited(filterByDate.filter(inv => inv.f_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1) || inv.l_name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1)
+        setInvited(filterByDate)
+        setFilteredInvited(filterByDate)
 
       } catch (error) {
         console.log('Error fetching data:', error);
@@ -65,7 +64,7 @@ function GuestsList() {
 
   const saveInv = () => {
 
-
+    
     if (details.f_name && details.l_name && details.status && details.gender && details.side) {
       setsearch("")
       firebase
@@ -91,15 +90,13 @@ function GuestsList() {
         .update(details)
         .then(() => {
           console.log('Invited updated!')
-          setRefetchTrigger(prev => !prev)
-          cancelUpdateAdd()
+          refreshGuestsList()
         }).catch((error) => {
           console.log(error.message)
         });
     }
   }
 
-  console.log(details)
 
   const checkPass = (event) => {
     event.preventDefault()
@@ -120,7 +117,6 @@ function GuestsList() {
     if (existing) {
       setDetails(existing)
       setEditInv(prev => !prev)
-      console.log(existing)
     }
   }
 
@@ -139,7 +135,7 @@ function GuestsList() {
 
   const deleteInv = () => {
     setsearch("")
-    if (confirm(`Are You Sure You want to Delete! ${details.f_name} ${details.l_name}`)) {
+    if (confirm(`Are You Sure You want to Delete! ${details.f_name.toUpperCase()} ${details.l_name.toUpperCase()}?`)) {
       console.log("Deleted")
       firebase
         .firestore().collection('guestsList')
@@ -167,7 +163,6 @@ function GuestsList() {
     setFiltered(e.target.value)
 
     setsearch("");
-    setFilterByStatus(true)
 
     setFilteredInvited(invited)
 
@@ -194,8 +189,8 @@ function GuestsList() {
     setsearch("");
     setFiltered("")
     setFilteredBy("")
-    setFilterByStatus("")
     setRefetchTrigger(prev => !prev)
+    cancelUpdateAdd()
   }
 
   const tableContent = filteredInvited.map((inv) => <Guest key={inv.id} guests={inv} search={search} invEdit={invEdit} />)
