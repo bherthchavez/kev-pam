@@ -8,6 +8,7 @@ import Guest from "./Guest";
 function GuestsList() {
 
 
+  const [isAdmin, setIsAdmin] = useState(false)
   const [invited, setInvited] = useState([])
   const [filteredInvited, setFilteredInvited] = useState([])
   const [addInv, setAddInv] = useState(false)
@@ -43,11 +44,11 @@ function GuestsList() {
       try {
         const result = await getGuestsList()
         const filterdByStatus = result.sort((a, b) => a.status > b.status ? 1 : -1)
-        
+
         const filterByDate = filterdByStatus.sort((a, b) => {
           let c = new Date(a.updatedDate)
           let d = new Date(b.updatedDate)
-          return  d - c
+          return d - c
         })
 
 
@@ -65,7 +66,7 @@ function GuestsList() {
 
   const saveInv = () => {
 
-    
+
     if (details.f_name && details.l_name && details.status && details.gender && details.side) {
       setsearch("")
       firebase
@@ -101,7 +102,9 @@ function GuestsList() {
 
   const checkPass = (event) => {
     event.preventDefault()
-    if (password.toUpperCase() === import.meta.env.VITE_KEY) {
+
+    if (password.toUpperCase() === import.meta.env.VITE_KEY || import.meta.env.VITE_KEY_ADMIN) {
+      setIsAdmin(password.toUpperCase() == import.meta.env.VITE_KEY_ADMIN)
       setPass(prev => !prev)
       setPassword("")
       setWrongPassword("")
@@ -350,7 +353,7 @@ function GuestsList() {
                     ?
                     <div className="min-w-full p-5 sm:p-10 flex flex-col text-white justify-center items-center gap-3">
 
-                    {
+                      {
                         details.plus === 'yes'
                         && details.plus1_status === 'attending'
                         && <>
@@ -369,8 +372,8 @@ function GuestsList() {
                           </div>
                         </>
                       }
-                    {
-                      details.mainGuest && details.mainGuest !==''
+                      {
+                        details.mainGuest && details.mainGuest !== ''
                         && <>
                           <div className="text-left w-full">
                             <p className="text-gray-500 text-base">Main Guest Details</p>
@@ -387,7 +390,7 @@ function GuestsList() {
                           </div>
                         </>
                       }
-                     
+
 
                       <label
                         htmlFor="Pangalan"
@@ -406,7 +409,7 @@ function GuestsList() {
 
                         />
                       </label>
-                     
+
                       <label
                         htmlFor="Apelyido"
                         className="block overflow-hidden w-full border border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
@@ -424,23 +427,27 @@ function GuestsList() {
 
                         />
                       </label>
-                      {/* <label
-                        htmlFor="Confirm "
-                        className="block overflow-hidden w-full border border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
-                      >
-                        <span className="text-sm tracking-widest font-light text-gray-500"> Confirm Date </span>
+                      {
+                        isAdmin
+                        &&
+                        <label
+                          htmlFor="Confirm "
+                          className="block overflow-hidden w-full border border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
+                        >
+                          <span className="text-sm tracking-widest font-light text-gray-500"> Confirm Date </span>
 
-                        <input
-                          id="confirm "
-                          name="confirm "
-                          type="text"
-                          required
-                          className="mt-1 w-full tracking-widest bg-transparent border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 "
-                          onChange={(e) => setDetails({ ...details, updatedDate: e.target.value })}
-                          value={details.updatedDate}
-                          
-                        />
-                      </label> */}
+                          <input
+                            id="confirm "
+                            name="confirm "
+                            type="text"
+                            required
+                            className="mt-1 w-full tracking-widest bg-transparent border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 "
+                            onChange={(e) => setDetails({ ...details, updatedDate: e.target.value })}
+                            value={details.updatedDate}
+
+                          />
+                        </label>
+                      }
 
                       <label
                         htmlFor="Status"
