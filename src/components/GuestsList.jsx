@@ -103,8 +103,8 @@ function GuestsList() {
   const checkPass = (event) => {
     event.preventDefault()
 
-    if (password.toUpperCase() === import.meta.env.VITE_KEY || import.meta.env.VITE_KEY_ADMIN) {
-      setIsAdmin(password.toUpperCase() == import.meta.env.VITE_KEY_ADMIN)
+    if (password.toUpperCase() === import.meta.env.VITE_KEY || import.meta.env.VITE_ADMIN_KEY6) {
+      setIsAdmin(password.toUpperCase() == import.meta.env.VITE_ADMIN_KEY6)
       setPass(prev => !prev)
       setPassword("")
       setWrongPassword("")
