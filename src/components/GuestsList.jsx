@@ -416,7 +416,7 @@ function GuestsList() {
                         && details.status === 'attending'
                         && details.plus1_f_name === ''
                         &&<div className="text-left w-full">
-                            <p className="text-red-500 tracking-wider text-xs">Please ask the {details.remarks} to provide <br></br> the details of {details.gender === 'male' ? 'his' : 'her'} Plus One.</p>
+                            <p className="text-red-500 tracking-wider text-sm">Please ask {details.f_name.toLocaleUpperCase()} to provide <br></br> the details of {details.gender === 'male' ? 'his' : 'her'} Plus One.</p>
                           </div>
                       }
 
