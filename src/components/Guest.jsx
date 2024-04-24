@@ -20,6 +20,14 @@ const Guest = ({ guests, search, invEdit }) => {
           }
           {
             guests.plus === 'yes'
+            && guests.status === 'attending' 
+            && guests.plus1_f_name === '' 
+            &&<span className="whitespace-nowrap ml-1 rounded-full bg-transparent hover:border-red-200 hover:text-red-200  border-[1px] border-red-500  px-1 py-0.5 text-xs text-red-500">
+                ?
+              </span>
+          }
+          {
+            guests.plus === 'yes'
             && guests.plus1_status === 'not attending' 
             &&<span className="whitespace-nowrap ml-1 rounded-full bg-transparent hover:border-slate-200 hover:text-slate-200  border-[1px] border-slate-500  px-1 py-0.5 text-xs text-slate-500">
                 +0

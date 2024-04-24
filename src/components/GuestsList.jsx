@@ -26,8 +26,11 @@ function GuestsList() {
     {
       f_name: '',
       l_name: '',
-      // updatedDate:'',
+      updatedDate: '',
       plus: '',
+      plus1_f_name: '',
+      plus1_l_name: '',
+      plus1_status: '',
       status: '',
       gender: '',
       remarks: '',
@@ -66,9 +69,9 @@ function GuestsList() {
 
   const saveInv = () => {
 
-
     if (details.f_name && details.l_name && details.status && details.gender && details.side) {
       setsearch("")
+
       firebase
         .firestore().collection('guestsList')
         .add(details)
@@ -82,14 +85,32 @@ function GuestsList() {
     }
 
   }
+
+
   const updateInv = () => {
+
+
+
     setsearch("")
     if (details.f_name && details.l_name && details.status && details.gender && details.side) {
+      console.log(details, invited.find(inv => inv.id === details.id))
 
       firebase
         .firestore().collection('guestsList')
         .doc(details.id)
-        .update(details)
+        .update({
+          f_name: details.f_name,
+          l_name: details.l_name,
+          updatedDate: details.updatedDate,
+          plus: details.plus,
+          plus1_f_name: details.plus1_f_name,
+          plus1_l_name: details.plus1_l_name,
+          plus1_status: details.plus1_f_name === '' ? '' : details.plus1_status,
+          status: details.status,
+          gender: details.gender,
+          remarks: details.remarks,
+          side: details.side,
+        })
         .then(() => {
           console.log('Invited updated!')
           refreshGuestsList()
@@ -111,9 +132,8 @@ function GuestsList() {
     } else {
       setWrongPassword("Wrong password!")
     }
-
-
   }
+
 
   const invEdit = (id) => {
     setsearch("")
@@ -372,6 +392,7 @@ function GuestsList() {
                           </div>
                         </>
                       }
+
                       {
                         details.mainGuest && details.mainGuest !== ''
                         && <>
@@ -389,6 +410,14 @@ function GuestsList() {
                             </div>
                           </div>
                         </>
+                      }
+                      {
+                        details.plus === 'yes'
+                        && details.status === 'attending'
+                        && details.plus1_f_name === ''
+                        &&<div className="text-left w-full">
+                            <p className="text-red-500 tracking-wider text-xs">Please ask the {details.remarks} to provide <br></br> the details of {details.gender === 'male' ? 'his' : 'her'} Plus One.</p>
+                          </div>
                       }
 
 

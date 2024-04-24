@@ -56,7 +56,6 @@ function Rsvp() {
         const result = await getGuestsList()
         const existing = result.find(inv => inv.id === params.id)
         if (existing) {
-          console.log(existing)
           setFoundInvited(existing)
           setPlus1(existing.plus === 'yes')
           setPlusYes(existing.plus === 'yes' && existing.status === 'attending')
@@ -92,7 +91,6 @@ function Rsvp() {
 
     setMainGuestStatus(ans)
 
-    console.log(ans)
     if (plus1 && ans === 'attending') {
       setPlusYes(true)
     } else {
