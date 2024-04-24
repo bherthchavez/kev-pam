@@ -558,7 +558,7 @@ function GuestsList() {
                         htmlFor="Plus"
                         className="block overflow-hidden w-full border border-gray-500 px-3 py-2 shadow-sm focus-within:border-slate-300 focus-within:ring-1 focus-within:ring-slate-400"
                       >
-                        <span className="text-sm tracking-widest text-gray-500"> Plus 1 </span>
+                        <span className="text-sm tracking-widest text-gray-500"> Plus One </span>
 
                         <select
                           name="Plus"
