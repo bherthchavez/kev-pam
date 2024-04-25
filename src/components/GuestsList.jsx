@@ -93,8 +93,6 @@ function GuestsList() {
 
     setsearch("")
     if (details.f_name && details.l_name && details.status && details.gender && details.side) {
-      console.log(details, invited.find(inv => inv.id === details.id))
-
       firebase
         .firestore().collection('guestsList')
         .doc(details.id)
@@ -122,8 +120,6 @@ function GuestsList() {
 
   const checkPass = (event) => {
     event.preventDefault()
-
-    console.log('password', password, password.toUpperCase() == import.meta.env.VITE_KEY )
 
     if (password.toUpperCase() === import.meta.env.VITE_KEY ) {
       setIsAdmin(password.toUpperCase() === import.meta.env.VITE_ADMIN_KEY6)
@@ -168,7 +164,6 @@ function GuestsList() {
   const deleteInv = () => {
     setsearch("")
     if (confirm(`Are You Sure You want to Delete! ${details.f_name.toUpperCase()} ${details.l_name.toUpperCase()}?`)) {
-      console.log("Deleted")
       firebase
         .firestore().collection('guestsList')
         .doc(details.id)
