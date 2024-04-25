@@ -120,15 +120,23 @@ function GuestsList() {
     }
   }
 
-
   const checkPass = (event) => {
     event.preventDefault()
 
-    if (password.toUpperCase() === import.meta.env.VITE_KEY || import.meta.env.VITE_ADMIN_KEY6) {
-      setIsAdmin(password.toUpperCase() == import.meta.env.VITE_ADMIN_KEY6)
+    console.log('password', password, password.toUpperCase() == import.meta.env.VITE_KEY )
+
+    if (password.toUpperCase() === import.meta.env.VITE_KEY ) {
+      setIsAdmin(password.toUpperCase() === import.meta.env.VITE_ADMIN_KEY6)
       setPass(prev => !prev)
       setPassword("")
       setWrongPassword("")
+    } else if(password.toUpperCase() === import.meta.env.VITE_ADMIN_KEY6){
+
+      setIsAdmin(password.toUpperCase() === import.meta.env.VITE_ADMIN_KEY6)
+      setPass(prev => !prev)
+      setPassword("")
+      setWrongPassword("")
+
     } else {
       setWrongPassword("Wrong password!")
     }
@@ -662,7 +670,7 @@ function GuestsList() {
                   required
                   className="mt-1 w-full bg-black text-white tracking-widest  border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 text-lg sm:text-2xl"
                   onChange={(e) => setPassword(e.target.value)}
-
+                  value={password}
                 />
               </label>
               <h1 className="text-red-500 text-sm text-center">{wrongPassword}</h1>
