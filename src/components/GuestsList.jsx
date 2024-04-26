@@ -25,16 +25,17 @@ function GuestsList() {
   const [details, setDetails] = useState(
     {
       f_name: '',
+      gender: '',
       l_name: '',
-      updatedDate: '',
-      plus: '',
+      plus: 'no',
       plus1_f_name: '',
+      plus1_gender: '',
       plus1_l_name: '',
       plus1_status: '',
-      status: '',
-      gender: '',
       remarks: '',
       side: '',
+      status: '',
+      updatedDate: '',
     }
   )
 
@@ -68,7 +69,6 @@ function GuestsList() {
   }, [refetchTrigger])
 
   const saveInv = () => {
-
     if (details.f_name && details.l_name && details.status && details.gender && details.side) {
       setsearch("")
 
@@ -88,8 +88,7 @@ function GuestsList() {
 
 
   const updateInv = () => {
-
-
+    
 
     setsearch("")
     if (details.f_name && details.l_name && details.status && details.gender && details.side) {
@@ -98,16 +97,18 @@ function GuestsList() {
         .doc(details.id)
         .update({
           f_name: details.f_name,
+          gender: details.gender,
+          id: details.id,
           l_name: details.l_name,
-          updatedDate: details.updatedDate,
-          plus: details.plus,
+          plus: !details.plus ? 'no' : details.plus,
           plus1_f_name: details.plus1_f_name,
+          plus1_gender: details.plus1_gender,
           plus1_l_name: details.plus1_l_name,
           plus1_status: details.plus1_f_name === '' ? '' : details.plus1_status,
-          status: details.status,
-          gender: details.gender,
           remarks: details.remarks,
           side: details.side,
+          status: details.status,
+          updatedDate: details.updatedDate,
         })
         .then(() => {
           console.log('Invited updated!')
@@ -152,12 +153,19 @@ function GuestsList() {
     setsearch("")
     setAddInv(false)
     setEditInv(false)
-    setDetails({
+    setDetails( {
       f_name: '',
-      l_name: '',
-      status: '',
       gender: '',
-      remarks: ''
+      l_name: '',
+      plus: 'no',
+      plus1_f_name: '',
+      plus1_gender: '',
+      plus1_l_name: '',
+      plus1_status: '',
+      remarks: '',
+      side: '',
+      status: '',
+      updatedDate: '',
     })
   }
 
