@@ -101,10 +101,10 @@ function GuestsList() {
           id: details.id,
           l_name: details.l_name,
           plus: !details.plus ? 'no' : details.plus,
-          plus1_f_name: details.plus1_f_name,
-          plus1_gender: details.plus1_gender,
-          plus1_l_name: details.plus1_l_name,
-          plus1_status: details.plus1_f_name === '' ? '' : details.plus1_status,
+          plus1_f_name: !details.plus1_f_name ? '' : details.plus1_f_name,
+          plus1_gender: !details.plus1_gender ? '': details.plus1_gender,
+          plus1_l_name: !details.plus1_l_name ? '' : details.plus1_l_name,
+          plus1_status: details.plus1_f_name === '' ? '' : !details.plus1_status ? '' :details.plus1_status,
           remarks: details.remarks,
           side: details.side,
           status: details.status,
@@ -144,6 +144,7 @@ function GuestsList() {
     setsearch("")
     const existing = invited.find(inv => inv.id === id)
     if (existing) {
+      console.log(existing)
       setDetails(existing)
       setEditInv(prev => !prev)
     }
