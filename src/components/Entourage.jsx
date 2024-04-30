@@ -68,7 +68,6 @@ const Venue = () => {
                                 <p className='mt-1 font-light'>Mrs. Divinia Chua</p>
                                 <p className='mt-1 font-light'>Mrs. Marie Lalaine Garrido</p>
                                 <p className='mt-1 font-light'>Ms. Elsa Suarez</p>
-                                <p className='mt-1 font-light'>Ms. Justine Angeles</p>
                                 <p className='mt-1 font-light'>Ms. Katrina Santos</p>
 
                             </div>
